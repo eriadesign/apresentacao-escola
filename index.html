@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Onboarding AUVP</title>
   <meta name="description" content="Apresentação de onboarding para novos membros da AUVP.">
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <!-- Design system AUVP (tema Escola): Anek Latin nos títulos, Roboto no corpo, Sora nos botões -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400..800&family=Roboto:wght@300;400;500;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -30,30 +34,40 @@
     </section>
 
     <!-- ============ 2. INFORMAÇÕES BÁSICAS ============ -->
-    <section class="slide" data-title="Informações básicas" data-block="Antes de começar">
-      <div class="slide__inner">
-        <p class="eyebrow">Antes de começar</p>
-        <h2>Como funciona a sua jornada</h2>
-        <div class="grid grid--3">
-          <div class="card card--stat">
-            <span class="stat-big">1 ano</span>
-            <p>de acesso a tudo: aulas, comunidade, ferramentas e encontros ao vivo.</p>
-          </div>
-          <div class="card card--stat">
-            <span class="stat-big">Toda semana</span>
-            <p>encontros ao vivo com o time AUVP.</p>
-            <p class="small"><span class="todo">[dia da semana]</span>, às <span class="todo">[horário]</span></p>
-          </div>
-          <div class="card">
-            <p class="card__label">No onboarding de hoje</p>
-            <ol class="agenda">
-              <li><span>1</span>Acesso e cadastro</li>
-              <li><span>2</span>Aulas, comunidade e ferramentas</li>
-              <li><span>3</span>Ecossistema e serviços AUVP</li>
-              <li><span>4</span>Avisos e próximos passos</li>
-            </ol>
-          </div>
+    <section class="slide slide--photo" data-title="Informações básicas" data-block="Antes de começar">
+      <figure class="photo-bleed" aria-hidden="true">
+        <img src="https://cdn.asupernova.com.br/lp-auvp/vite/o-que-voce-vai-aprender2.webp" alt="">
+      </figure>
+      <div class="slide__inner photo-layout">
+        <div class="photo-layout__content">
+          <p class="eyebrow">Antes de começar</p>
+          <h2>Como funciona a sua jornada</h2>
+          <ul class="facts">
+            <li class="fact">
+              <span class="fact__icon"><i class="ph ph-calendar-check"></i></span>
+              <div>
+                <p class="fact__value">1 ano</p>
+                <p class="muted">de acesso a tudo: aulas, comunidade, ferramentas e encontros ao vivo.</p>
+              </div>
+            </li>
+            <li class="fact">
+              <span class="fact__icon"><i class="ph ph-video-camera"></i></span>
+              <div>
+                <p class="fact__value">Toda semana</p>
+                <p class="muted">encontros ao vivo com o time AUVP · <span class="todo">[dia da semana]</span>, às <span class="todo">[horário]</span></p>
+              </div>
+            </li>
+          </ul>
         </div>
+        <aside class="glass agenda-card">
+          <p class="label">No onboarding de hoje</p>
+          <ol class="agenda">
+            <li><span>01</span>Acesso e cadastro</li>
+            <li><span>02</span>Aulas, comunidade e ferramentas</li>
+            <li><span>03</span>Ecossistema e serviços AUVP</li>
+            <li><span>04</span>Avisos e próximos passos</li>
+          </ol>
+        </aside>
       </div>
     </section>
 
@@ -68,20 +82,19 @@
 
     <!-- 3. Minha AUVP -->
     <section class="slide" data-title="Minha AUVP" data-block="Bloco 1 · Acesso e cadastro">
-      <div class="slide__inner split">
+      <div class="slide__inner split split--media">
+        <a class="shot" data-link="minhaAuvp">
+          <span class="shot__bar"><i></i><i></i><i></i><span class="shot__url">minha.auvp.com.br</span></span>
+          <span class="shot__screen shot__screen--video">
+            <video src="https://cdn.asupernova.com.br/apresentacaoescola/Gravando%202026-09-28%20160329.mp4" muted loop playsinline preload="auto" aria-label="Navegação pela Minha AUVP"></video>
+          </span>
+        </a>
         <div>
           <p class="eyebrow">Sua porta de entrada</p>
           <h2>Tudo começa na <span class="gold">Minha AUVP</span></h2>
           <p class="muted">É por ela que você acessa a plataforma de aulas, a comunidade e todas as ferramentas. Salve esse link nos favoritos!</p>
-          <a class="btn" data-link="minhaAuvp">Abrir a Minha AUVP <span aria-hidden="true">↗</span></a>
+          <a class="btn" data-link="minhaAuvp">Acessar Minha AUVP <i class="ph ph-arrow-up-right"></i></a>
         </div>
-        <a class="shot" data-link="minhaAuvp">
-          <span class="shot__bar"><i></i><i></i><i></i><span class="shot__url">Minha AUVP</span></span>
-          <span class="shot__screen">
-            <span class="shot__placeholder">Print da Minha AUVP<small>assets/img/minha-auvp.png</small></span>
-            <img src="assets/img/minha-auvp.png" alt="Tela da Minha AUVP">
-          </span>
-        </a>
       </div>
     </section>
 
@@ -101,11 +114,11 @@
         <h2>Tudo o que você tem acesso</h2>
         <div class="tools" data-tabs>
           <div class="tools__list" role="tablist">
-            <button class="tools__tab" role="tab" data-tab="aulas" aria-selected="true"><span class="tools__num">01</span>Plataforma de aulas<span class="tools__check" aria-hidden="true">✓</span></button>
-            <button class="tools__tab" role="tab" data-tab="comunidade"><span class="tools__num">02</span>Comunidade<span class="tools__check" aria-hidden="true">✓</span></button>
-            <button class="tools__tab" role="tab" data-tab="financas"><span class="tools__num">03</span>Minhas Finanças<span class="tools__check" aria-hidden="true">✓</span></button>
-            <button class="tools__tab" role="tab" data-tab="cerrado"><span class="tools__num">04</span>Diagrama do Cerrado<span class="tools__check" aria-hidden="true">✓</span></button>
-            <button class="tools__tab" role="tab" data-tab="analitica"><span class="tools__num">05</span>Analítica<span class="tools__check" aria-hidden="true">✓</span></button>
+            <button class="tools__tab" role="tab" data-tab="aulas" aria-selected="true"><span class="tools__num">01</span>Plataforma de aulas<i class="tools__check ph-fill ph-check-circle"></i></button>
+            <button class="tools__tab" role="tab" data-tab="comunidade"><span class="tools__num">02</span>Comunidade<i class="tools__check ph-fill ph-check-circle"></i></button>
+            <button class="tools__tab" role="tab" data-tab="financas"><span class="tools__num">03</span>Minhas Finanças<i class="tools__check ph-fill ph-check-circle"></i></button>
+            <button class="tools__tab" role="tab" data-tab="cerrado"><span class="tools__num">04</span>Diagrama do Cerrado<i class="tools__check ph-fill ph-check-circle"></i></button>
+            <button class="tools__tab" role="tab" data-tab="analitica"><span class="tools__num">05</span>Analítica<i class="tools__check ph-fill ph-check-circle"></i></button>
           </div>
 
           <div class="tools__panel" data-panel="aulas">
@@ -118,7 +131,7 @@
             </a>
             <div class="tools__caption">
               <p><span class="todo">Onde ficam todos os módulos e aulas do curso.</span></p>
-              <a class="btn btn--small" data-link="aulas">Abrir <span aria-hidden="true">↗</span></a>
+              <a class="btn btn--small" data-link="aulas">Abrir <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
 
@@ -132,7 +145,7 @@
             </a>
             <div class="tools__caption">
               <p><span class="todo">A maior comunidade de investimentos do país: pergunte, compartilhe e aprenda junto.</span></p>
-              <a class="btn btn--small" data-link="comunidade">Abrir <span aria-hidden="true">↗</span></a>
+              <a class="btn btn--small" data-link="comunidade">Abrir <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
 
@@ -146,7 +159,7 @@
             </a>
             <div class="tools__caption">
               <p><span class="todo">Organize seu orçamento e acompanhe sua vida financeira.</span></p>
-              <a class="btn btn--small" data-link="minhasFinancas">Abrir <span aria-hidden="true">↗</span></a>
+              <a class="btn btn--small" data-link="minhasFinancas">Abrir <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
 
@@ -160,7 +173,7 @@
             </a>
             <div class="tools__caption">
               <p><span class="todo">O método para analisar e selecionar ações.</span></p>
-              <a class="btn btn--small" data-link="diagramaCerrado">Abrir <span aria-hidden="true">↗</span></a>
+              <a class="btn btn--small" data-link="diagramaCerrado">Abrir <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
 
@@ -174,7 +187,7 @@
             </a>
             <div class="tools__caption">
               <p><span class="todo">Dados e análises para apoiar suas decisões de investimento.</span></p>
-              <a class="btn btn--small" data-link="analitica">Abrir <span aria-hidden="true">↗</span></a>
+              <a class="btn btn--small" data-link="analitica">Abrir <i class="ph ph-arrow-up-right"></i></a>
             </div>
           </div>
         </div>
@@ -188,18 +201,18 @@
         <h2>Toda semana, <span class="gold">ao vivo</span> com a gente</h2>
         <div class="grid grid--3">
           <div class="card">
-            <span class="card__icon" aria-hidden="true">🗓️</span>
-            <p class="card__label">Quando</p>
+            <i class="card__icon ph ph-calendar-blank"></i>
+            <p class="label">Quando</p>
             <p class="card__value"><span class="todo">[dia da semana]</span><br>às <span class="todo">[horário]</span></p>
           </div>
           <div class="card">
-            <span class="card__icon" aria-hidden="true">📍</span>
-            <p class="card__label">Onde</p>
+            <i class="card__icon ph ph-video-camera"></i>
+            <p class="label">Onde</p>
             <p class="card__value"><span class="todo">[Google Meet — link disponível em…]</span></p>
           </div>
           <div class="card">
-            <span class="card__icon" aria-hidden="true">💬</span>
-            <p class="card__label">Para quê</p>
+            <i class="card__icon ph ph-chats-circle"></i>
+            <p class="label">Para quê</p>
             <p class="card__value"><span class="todo">[tirar dúvidas, aprofundar os conteúdos…]</span></p>
           </div>
         </div>
@@ -219,7 +232,7 @@
           </div>
           <div class="journey__arrow" aria-hidden="true"></div>
           <div class="journey__step journey__step--gold">
-            <span class="journey__tag">∞ AUVP Sempre</span>
+            <span class="journey__tag"><i class="ph ph-infinity"></i> AUVP Sempre</span>
             <p>Continue com a gente, participando de tudo</p>
           </div>
         </div>
@@ -235,15 +248,15 @@
         <p class="muted">Para se ambientar na plataforma, faça estas 3 coisas:</p>
         <ol class="tasks">
           <li><button class="task" aria-pressed="false">
-            <span class="task__box" aria-hidden="true"></span>
+            <span class="task__box" aria-hidden="true"><i class="ph ph-check"></i></span>
             <span class="task__text"><strong>Acesse a plataforma de aulas</strong> pela Minha AUVP</span>
           </button></li>
           <li><button class="task" aria-pressed="false">
-            <span class="task__box" aria-hidden="true"></span>
+            <span class="task__box" aria-hidden="true"><i class="ph ph-check"></i></span>
             <span class="task__text"><strong>Assista ao módulo de boas-vindas</strong></span>
           </button></li>
           <li><button class="task task--raul" aria-pressed="false">
-            <span class="task__box" aria-hidden="true"></span>
+            <span class="task__box" aria-hidden="true"><i class="ph ph-check"></i></span>
             <span class="task__text"><strong>Faça seu primeiro post na comunidade</strong><small>Sugestão: responda o <em>“Apresente-se”</em> do Raul</small></span>
             <span class="avatar">
               <span class="avatar__fallback">RS</span>
@@ -271,22 +284,23 @@
         <div class="capital">
           <div class="grid grid--3 capital__values">
             <div class="card">
-              <span class="card__icon" aria-hidden="true">◆</span>
+              <i class="card__icon ph ph-seal-check"></i>
               <p class="card__title">Entrega de qualidade</p>
               <p class="small muted">O mesmo padrão das aulas, aplicado ao atendimento e às recomendações.</p>
             </div>
             <div class="card">
-              <span class="card__icon" aria-hidden="true">◇</span>
+              <i class="card__icon ph ph-eye"></i>
               <p class="card__title">Gestão transparente</p>
               <p class="small muted">Você sabe exatamente quanto paga e por quê. Sem entrelinhas.</p>
             </div>
             <div class="card">
-              <span class="card__icon" aria-hidden="true">◈</span>
+              <i class="card__icon ph ph-book-open-text"></i>
               <p class="card__title"><span class="todo">Educação antes de tudo</span></p>
               <p class="small muted">Você entende cada decisão antes de tomá-la.</p>
             </div>
           </div>
           <div class="badge-top1">
+            <i class="ph-fill ph-trophy"></i>
             <span class="badge-top1__num">TOP 1</span>
             <span class="badge-top1__text">Consultoria nº 1 no ranking do <strong>BTG Pactual</strong></span>
           </div>
@@ -301,11 +315,13 @@
         <h2>AUVP Capital <span class="gold">+</span> BTG Pactual</h2>
         <div class="partner">
           <div class="partner__box">
+            <i class="partner__icon ph ph-bank"></i>
             <p class="partner__name">BTG Pactual</p>
             <p class="partner__role">Onde sua conta é aberta e seus investimentos ficam guardados.</p>
           </div>
           <div class="partner__link" aria-hidden="true"><span>parceria</span></div>
           <div class="partner__box partner__box--gold">
+            <i class="partner__icon ph ph-compass"></i>
             <p class="partner__name">AUVP Capital</p>
             <p class="partner__role">Quem cuida da sua estratégia, do atendimento e das suas vantagens de membro.</p>
           </div>
@@ -322,27 +338,27 @@
         <div class="perks fragment" data-fragment="state">
           <div class="grid grid--3">
             <div class="perk">
-              <span class="perk__lock" aria-hidden="true"></span>
-              <span class="perk__icon" aria-hidden="true">💳</span>
+              <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              <i class="perk__icon ph ph-credit-card"></i>
               <p class="card__title">Cartão</p>
               <p class="small muted"><span class="todo">[benefício principal do cartão]</span></p>
             </div>
             <div class="perk">
-              <span class="perk__lock" aria-hidden="true"></span>
-              <span class="perk__icon" aria-hidden="true">📊</span>
+              <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              <i class="perk__icon ph ph-chart-pie-slice"></i>
               <p class="card__title">Carteiras recomendadas</p>
               <p class="small muted">Carteiras montadas pelo nosso time para você investir com mais segurança.</p>
             </div>
             <div class="perk">
-              <span class="perk__lock" aria-hidden="true"></span>
-              <span class="perk__icon" aria-hidden="true">🛡️</span>
+              <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              <i class="perk__icon ph ph-umbrella"></i>
               <p class="card__title">Previdência privada</p>
               <p class="small muted"><span class="todo">[benefício da previdência]</span></p>
             </div>
           </div>
           <p class="perks__more">E mais: <span>Corretagem zero</span><span>Cashback em renda fixa</span><span>Relatórios exclusivos</span></p>
         </div>
-        <button class="btn perks__btn" data-unlock>Abrir minha conta <span aria-hidden="true">🔓</span></button>
+        <button class="btn perks__btn" data-unlock>Abrir minha conta <i class="ph ph-lock-simple-open"></i></button>
       </div>
     </section>
 
@@ -355,18 +371,18 @@
           <div class="compare__col compare__col--old">
             <p class="compare__title">Mercado tradicional</p>
             <ul>
-              <li>Ganha comissão pelos produtos que você compra</li>
-              <li>Incentivo para indicar o que paga mais comissão</li>
-              <li>Custo do serviço misturado ao custo dos ativos</li>
+              <li><i class="ph ph-x"></i>Ganha comissão pelos produtos que você compra</li>
+              <li><i class="ph ph-x"></i>Incentivo para indicar o que paga mais comissão</li>
+              <li><i class="ph ph-x"></i>Custo do serviço misturado ao custo dos ativos</li>
             </ul>
           </div>
           <div class="compare__col compare__col--new">
             <p class="compare__title">AUVP Capital · fee-based</p>
             <ul>
-              <li class="fragment"><strong>Percentual fixo e transparente</strong> sobre o seu patrimônio investido</li>
-              <li class="fragment"><strong>Zero comissão:</strong> o consultor não ganha nada a mais por indicar um ativo</li>
-              <li class="fragment"><strong>Gerou rebate? Volta pra você</strong> como cashback, em crédito ou abatendo a sua taxa</li>
-              <li class="fragment"><strong>Custo do serviço 100% separado</strong> do custo dos ativos</li>
+              <li class="fragment"><i class="ph ph-check"></i><span><strong>Percentual fixo e transparente</strong> sobre o seu patrimônio investido</span></li>
+              <li class="fragment"><i class="ph ph-check"></i><span><strong>Zero comissão:</strong> o consultor não ganha nada a mais por indicar um ativo</span></li>
+              <li class="fragment"><i class="ph ph-check"></i><span><strong>Gerou rebate? Volta pra você</strong> como cashback, em crédito ou abatendo a sua taxa</span></li>
+              <li class="fragment"><i class="ph ph-check"></i><span><strong>Custo do serviço 100% separado</strong> do custo dos ativos</span></li>
             </ul>
           </div>
         </div>
@@ -381,13 +397,13 @@
         <h2>Qual plano combina com você?</h2>
         <div class="plans" data-tabs>
           <div class="plans__scale" role="tablist">
-            <span class="plans__axis plans__axis--start">Mais autonomia</span>
+            <span class="plans__axis plans__axis--start"><i class="ph ph-arrow-left"></i> Mais autonomia</span>
             <div class="plans__tabs">
-              <button class="plans__tab" role="tab" data-tab="sevira" aria-selected="true"><span class="plans__dot"></span>Se Vira Aí</button>
-              <button class="plans__tab" role="tab" data-tab="mediz"><span class="plans__dot"></span>Me Diz O Que Fazer</button>
-              <button class="plans__tab" role="tab" data-tab="resolve"><span class="plans__dot"></span>Resolve Aí</button>
+              <button class="pill" role="tab" data-tab="sevira" aria-selected="true">Se Vira Aí</button>
+              <button class="pill" role="tab" data-tab="mediz">Me Diz O Que Fazer</button>
+              <button class="pill" role="tab" data-tab="resolve">Resolve Aí</button>
             </div>
-            <span class="plans__axis plans__axis--end">Mais acompanhamento</span>
+            <span class="plans__axis plans__axis--end">Mais acompanhamento <i class="ph ph-arrow-right"></i></span>
           </div>
 
           <div class="plan" data-panel="sevira">
@@ -396,12 +412,12 @@
               <p class="plan__fee"><span class="todo" title="Confirmar: ao mês ou ao ano?">0,3% a 0,4% ao mês</span></p>
             </div>
             <ul class="plan__list">
-              <li>Corretagem zero</li>
-              <li>Cashback em renda fixa</li>
-              <li>Acesso aos relatórios</li>
-              <li>Todos os benefícios de membro</li>
+              <li><i class="ph ph-check"></i>Corretagem zero</li>
+              <li><i class="ph ph-check"></i>Cashback em renda fixa</li>
+              <li><i class="ph ph-check"></i>Acesso aos relatórios</li>
+              <li><i class="ph ph-check"></i>Todos os benefícios de membro</li>
             </ul>
-            <p class="plan__note">Não inclui suporte técnico nem monitoramento da carteira.</p>
+            <p class="plan__note"><i class="ph ph-warning"></i> Não inclui suporte técnico nem monitoramento da carteira.</p>
           </div>
 
           <div class="plan" data-panel="mediz" hidden>
@@ -410,9 +426,9 @@
               <p class="plan__fee"><span class="todo" title="Confirmar: ao mês ou ao ano?">0,9% ao mês</span></p>
             </div>
             <ul class="plan__list">
-              <li>Direcionamento sob demanda</li>
-              <li>Carteiras recomendadas para o seu perfil</li>
-              <li>Atendimento para tirar dúvidas e organizar sua estratégia</li>
+              <li><i class="ph ph-check"></i>Direcionamento sob demanda</li>
+              <li><i class="ph ph-check"></i>Carteiras recomendadas para o seu perfil</li>
+              <li><i class="ph ph-check"></i>Atendimento para tirar dúvidas e organizar sua estratégia</li>
             </ul>
           </div>
 
@@ -422,10 +438,10 @@
               <p class="plan__fee plan__fee--text">Taxa variável, conforme o patrimônio</p>
             </div>
             <ul class="plan__list">
-              <li>Consultoria completa e exclusiva: a responsabilidade técnica é nossa</li>
-              <li>Acompanhamento ativo e estratégia 100% personalizada</li>
-              <li>Consultor dedicado no WhatsApp</li>
-              <li>Reuniões bimestrais de alinhamento</li>
+              <li><i class="ph ph-check"></i>Consultoria completa e exclusiva: a responsabilidade técnica é nossa</li>
+              <li><i class="ph ph-check"></i>Acompanhamento ativo e estratégia 100% personalizada</li>
+              <li><i class="ph ph-check"></i>Consultor dedicado no WhatsApp</li>
+              <li><i class="ph ph-check"></i>Reuniões bimestrais de alinhamento</li>
             </ul>
           </div>
         </div>
@@ -439,9 +455,9 @@
           <p class="eyebrow">Na prática</p>
           <h2>Abra sua conta na <span class="gold">AUVP Capital</span></h2>
           <ol class="steps">
-            <li><span class="steps__num">1</span><p><span class="todo">Acesse o link ou aponte a câmera para o QR code</span></p></li>
-            <li><span class="steps__num">2</span><p><span class="todo">Preencha seus dados para abrir sua conta no BTG, vinculada à AUVP Capital</span></p></li>
-            <li><span class="steps__num">3</span><p><span class="todo">Escolha seu plano e pronto: suas vantagens estão desbloqueadas</span></p></li>
+            <li><span class="steps__num">01</span><p><span class="todo">Acesse o link ou aponte a câmera para o QR code</span></p></li>
+            <li><span class="steps__num">02</span><p><span class="todo">Preencha seus dados para abrir sua conta no BTG, vinculada à AUVP Capital</span></p></li>
+            <li><span class="steps__num">03</span><p><span class="todo">Escolha seu plano e pronto: suas vantagens estão desbloqueadas</span></p></li>
           </ol>
         </div>
         <div class="qr-card">
@@ -472,42 +488,42 @@
             <div class="eco__center">
               <img src="https://cdn.asupernova.com.br/lp-auvp/vite/auvp-escola-horizontal-amarelo.svg" alt="AUVP">
             </div>
-            <button class="eco__node is-known" style="--x:50%;--y:12%" data-tab="escola"><span aria-hidden="true">🎓</span>Escola</button>
-            <button class="eco__node is-known" style="--x:82.9%;--y:31%" data-tab="capital"><span aria-hidden="true">📈</span>Capital</button>
-            <button class="eco__node" style="--x:82.9%;--y:69%" data-tab="cambio" aria-selected="true"><span aria-hidden="true">💱</span>Câmbio</button>
-            <button class="eco__node" style="--x:50%;--y:88%" data-tab="seguros"><span aria-hidden="true">🛡️</span>Seguros</button>
-            <button class="eco__node" style="--x:17.1%;--y:69%" data-tab="credito"><span aria-hidden="true">🏦</span>Crédito</button>
-            <button class="eco__node" style="--x:17.1%;--y:31%" data-tab="wealth"><span aria-hidden="true">💎</span>Wealth</button>
+            <button class="eco__node is-known" style="--x:50%;--y:12%" data-tab="escola"><i class="ph ph-graduation-cap"></i>Escola</button>
+            <button class="eco__node is-known" style="--x:82.9%;--y:31%" data-tab="capital"><i class="ph ph-trend-up"></i>Capital</button>
+            <button class="eco__node" style="--x:82.9%;--y:69%" data-tab="cambio" aria-selected="true"><i class="ph ph-currency-circle-dollar"></i>Câmbio</button>
+            <button class="eco__node" style="--x:50%;--y:88%" data-tab="seguros"><i class="ph ph-shield-check"></i>Seguros</button>
+            <button class="eco__node" style="--x:17.1%;--y:69%" data-tab="credito"><i class="ph ph-hand-coins"></i>Crédito</button>
+            <button class="eco__node" style="--x:17.1%;--y:31%" data-tab="wealth"><i class="ph ph-diamond"></i>Wealth</button>
           </div>
 
           <div class="eco__detail">
             <div data-panel="escola" hidden>
-              <p class="eco__tag">Você já conhece ✓</p>
+              <p class="label">Você já conhece <i class="ph-fill ph-check-circle"></i></p>
               <p class="eco__name">Escola</p>
               <p>Onde tudo começa: educação financeira antes de qualquer decisão de investimento.</p>
             </div>
             <div data-panel="capital" hidden>
-              <p class="eco__tag">Você já conhece ✓</p>
+              <p class="label">Você já conhece <i class="ph-fill ph-check-circle"></i></p>
               <p class="eco__name">AUVP Capital</p>
               <p>Consultoria de investimentos fee-based, em parceria com o BTG Pactual.</p>
             </div>
             <div data-panel="cambio">
-              <p class="eco__tag">Ecossistema</p>
+              <p class="label">Ecossistema</p>
               <p class="eco__name">Câmbio</p>
               <p><span class="todo">Operações de câmbio para viagens, investimentos e remessas.</span></p>
             </div>
             <div data-panel="seguros" hidden>
-              <p class="eco__tag">Ecossistema</p>
+              <p class="label">Ecossistema</p>
               <p class="eco__name">Seguros</p>
               <p><span class="todo">Proteção para você, sua família e o seu patrimônio.</span></p>
             </div>
             <div data-panel="credito" hidden>
-              <p class="eco__tag">Ecossistema</p>
+              <p class="label">Ecossistema</p>
               <p class="eco__name">Crédito</p>
               <p><span class="todo">[descrição do serviço de crédito]</span></p>
             </div>
             <div data-panel="wealth" hidden>
-              <p class="eco__tag">Ecossistema</p>
+              <p class="label">Ecossistema</p>
               <p class="eco__name">Wealth</p>
               <p><span class="todo">Gestão patrimonial completa para [perfil de patrimônio].</span></p>
             </div>
@@ -532,21 +548,21 @@
         <h2>3 lembretes importantes</h2>
         <ol class="reminders">
           <li class="fragment">
-            <span class="reminders__num">1</span>
+            <span class="reminders__icon"><i class="ph ph-play-circle"></i></span>
             <div>
               <p class="card__title">Assista ao módulo de boas-vindas</p>
               <p class="muted">É a base para aproveitar todo o resto da sua jornada.</p>
             </div>
           </li>
           <li class="fragment">
-            <span class="reminders__num">2</span>
+            <span class="reminders__icon"><i class="ph ph-broadcast"></i></span>
             <div>
               <p class="card__title">Live inaugural</p>
               <p class="muted"><span class="todo">[data]</span>, às <span class="todo">[horário]</span> · <span class="todo">[onde]</span></p>
             </div>
           </li>
           <li class="fragment">
-            <span class="reminders__num">3</span>
+            <span class="reminders__icon"><i class="ph ph-lock-simple-open"></i></span>
             <div>
               <p class="card__title">Abra sua conta na AUVP Capital</p>
               <p class="muted">E desbloqueie todas as suas vantagens de membro.</p>
@@ -584,11 +600,11 @@
   </main>
 
   <nav class="controls" aria-label="Navegação dos slides">
-    <button class="controls__btn" data-action="prev" aria-label="Slide anterior">←</button>
+    <button class="controls__btn" data-action="prev" aria-label="Slide anterior"><i class="ph ph-arrow-left"></i></button>
     <div class="dots" role="tablist"></div>
-    <button class="controls__btn" data-action="next" aria-label="Próximo slide">→</button>
+    <button class="controls__btn" data-action="next" aria-label="Próximo slide"><i class="ph ph-arrow-right"></i></button>
     <span class="counter" aria-live="polite"></span>
-    <button class="controls__btn" data-action="fullscreen" aria-label="Tela cheia (F)">⛶</button>
+    <button class="controls__btn" data-action="fullscreen" aria-label="Tela cheia (F)"><i class="ph ph-corners-out"></i></button>
   </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>

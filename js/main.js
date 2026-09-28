@@ -47,6 +47,16 @@
     blockEl.textContent = slide.dataset.block || "";
     document.body.classList.toggle("chrome-off", slide.dataset.chrome === "off");
 
+    // Vídeos tocam só no slide ativo, sempre do começo
+    document.querySelectorAll(".slide video").forEach((video) => {
+      if (slide.contains(video)) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+
     current = index;
     history.replaceState(null, "", `#${index + 1}`);
   }
