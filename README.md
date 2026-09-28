@@ -44,20 +44,11 @@ O visual segue o [design system AUVP](https://central-produtos.vercel.app/design
 
 Trechos com **sublinhado tracejado laranja** (`class="todo"`) ainda precisam ser preenchidos ou confirmados.
 
-### Imagens esperadas em `assets/img/`
+### Imagens
 
-Enquanto a imagem não existe, aparece um placeholder com o nome do arquivo.
+Os prints das ferramentas, a foto de "Antes de começar" e o vídeo da Minha AUVP vêm do CDN da AUVP (`cdn.asupernova.com.br`), direto no `index.html`.
 
-| Arquivo | Onde aparece |
-| --- | --- |
-| `aulas.png` | Bloco 2 · Plataforma de aulas |
-| `comunidade.png` | Bloco 2 · Comunidade |
-| `minhas-financas.png` | Bloco 2 · Minhas Finanças |
-| `diagrama-cerrado.png` | Bloco 2 · Diagrama do Cerrado |
-| `analitica.png` | Bloco 2 · Analítica |
-| `raul.jpg` | Tarefa de casa (avatar) |
-
-Prints em 16:10 (ex.: 1440×900) ficam melhores.
+Falta só a foto do Raul para o avatar da tarefa de casa: salve como `assets/img/raul.jpg`. Enquanto ela não existe, aparecem as iniciais "RS".
 
 ## Fluxo de trabalho
 
