@@ -3,9 +3,10 @@
   const dotsEl = document.querySelector(".dots");
   const counterEl = document.querySelector(".counter");
   const progressEl = document.querySelector(".progress__bar");
+  const blockEl = document.querySelector(".topbar__block");
   const prevBtn = document.querySelector('[data-action="prev"]');
   const nextBtn = document.querySelector('[data-action="next"]');
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const LINKS = window.AUVP_LINKS || {};
 
   let current = -1;
 
@@ -16,19 +17,26 @@
     dot.className = "dot";
     dot.setAttribute("role", "tab");
     dot.setAttribute("aria-label", `Ir para ${slide.dataset.title || `slide ${i + 1}`}`);
+    dot.title = slide.dataset.title || "";
     dot.addEventListener("click", () => goTo(i));
     dotsEl.appendChild(dot);
     return dot;
   });
 
-  function goTo(index) {
+  const fragmentsOf = (slide) => [...slide.querySelectorAll(".fragment")];
+
+  // showFragments: ao voltar de um slide, o anterior aparece completo
+  function goTo(index, { showFragments = false } = {}) {
     index = Math.max(0, Math.min(slides.length - 1, index));
     if (index === current) return;
 
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("is-active", i === index);
-      slide.classList.toggle("is-past", i < index);
-      slide.setAttribute("aria-hidden", i !== index);
+    const slide = slides[index];
+    fragmentsOf(slide).forEach((f) => f.classList.toggle("is-visible", showFragments));
+
+    slides.forEach((s, i) => {
+      s.classList.toggle("is-active", i === index);
+      s.classList.toggle("is-past", i < index);
+      s.setAttribute("aria-hidden", i !== index);
     });
     dots.forEach((dot, i) => dot.setAttribute("aria-selected", i === index));
 
@@ -36,21 +44,28 @@
     progressEl.style.width = `${((index + 1) / slides.length) * 100}%`;
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === slides.length - 1;
+    blockEl.textContent = slide.dataset.block || "";
+    document.body.classList.toggle("chrome-off", slide.dataset.chrome === "off");
 
     current = index;
     history.replaceState(null, "", `#${index + 1}`);
-    onEnter(slides[index]);
   }
 
-  const next = () => goTo(current + 1);
-  const prev = () => goTo(current - 1);
+  function next() {
+    const pending = fragmentsOf(slides[current]).find((f) => !f.classList.contains("is-visible"));
+    if (pending) pending.classList.add("is-visible");
+    else goTo(current + 1);
+  }
+
+  function prev() {
+    const shown = fragmentsOf(slides[current]).filter((f) => f.classList.contains("is-visible"));
+    if (shown.length) shown.at(-1).classList.remove("is-visible");
+    else goTo(current - 1, { showFragments: true });
+  }
 
   prevBtn.addEventListener("click", prev);
   nextBtn.addEventListener("click", next);
   document.querySelector('[data-action="fullscreen"]').addEventListener("click", toggleFullscreen);
-  document.querySelectorAll("[data-goto]").forEach((el) =>
-    el.addEventListener("click", () => goTo(Number(el.dataset.goto)))
-  );
 
   document.addEventListener("keydown", (e) => {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
@@ -60,7 +75,7 @@
         e.preventDefault(); next(); break;
       case " ":
         // Espaço em cima de um botão deve acionar o botão, não avançar
-        if (e.target.closest("button")) return;
+        if (e.target.closest("button, a")) return;
         e.preventDefault(); next(); break;
       case "ArrowLeft":
       case "PageUp":
@@ -69,6 +84,8 @@
       case "End": goTo(slides.length - 1); break;
       case "f":
       case "F": toggleFullscreen(); break;
+      case "t":
+      case "T": document.body.classList.toggle("hide-todo"); break;
     }
   });
 
@@ -94,45 +111,84 @@
     return Number.isNaN(n) ? 0 : n - 1;
   }
 
-  // ---------- Interações dos slides ----------
+  // ---------- Links (js/config.js) ----------
 
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const open = card.getAttribute("aria-expanded") === "true";
-      card.setAttribute("aria-expanded", !open);
-    });
+  document.querySelectorAll("[data-link]").forEach((el) => {
+    const url = LINKS[el.dataset.link];
+    if (url) {
+      el.href = url;
+      el.target = "_blank";
+      el.rel = "noopener";
+    } else {
+      el.classList.add("is-pending");
+      el.title = `Link pendente: preencha "${el.dataset.link}" em js/config.js`;
+      el.addEventListener("click", (e) => e.preventDefault());
+    }
   });
 
-  document.querySelectorAll(".timeline").forEach((timeline) => {
-    const items = [...timeline.querySelectorAll(".timeline__item")];
-    items.forEach((item) => {
-      item.querySelector(".timeline__year").addEventListener("click", () => {
-        items.forEach((other) => other.classList.toggle("is-active", other === item));
+  // ---------- QR codes ----------
+
+  document.querySelectorAll("[data-qr]").forEach((el) => {
+    const url = LINKS[el.dataset.qr];
+    if (!url || typeof qrcode !== "function") {
+      el.classList.add("is-pending");
+      el.textContent = url
+        ? "Não foi possível gerar o QR code (sem internet?)"
+        : `QR code aparece aqui quando "${el.dataset.qr}" for preenchido em js/config.js`;
+      return;
+    }
+    const qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    el.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  });
+
+  // ---------- Prints: sem imagem, fica o placeholder ----------
+
+  document.querySelectorAll(".shot__screen img, .avatar img").forEach((img) => {
+    const fail = () => img.remove();
+    if (img.complete && img.naturalWidth === 0) fail();
+    else img.addEventListener("error", fail);
+  });
+
+  // ---------- Abas (ferramentas, planos, ecossistema) ----------
+
+  document.querySelectorAll("[data-tabs]").forEach((group) => {
+    const tabs = [...group.querySelectorAll("[data-tab]")];
+    const panels = [...group.querySelectorAll("[data-panel]")];
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.setAttribute("aria-selected", t === tab));
+        panels.forEach((p) => { p.hidden = p.dataset.panel !== tab.dataset.tab; });
       });
     });
   });
 
-  function onEnter(slide) {
-    slide.querySelectorAll("[data-count]").forEach(animateCount);
-  }
+  // Ferramentas: marca como "visitada" ao abrir o link
+  document.querySelectorAll(".tools__panel").forEach((panel) => {
+    panel.querySelectorAll("[data-link]").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (link.classList.contains("is-pending")) return;
+        document.querySelector(`.tools__tab[data-tab="${panel.dataset.panel}"]`)?.classList.add("is-visited");
+      });
+    });
+  });
 
-  function animateCount(el) {
-    const target = Number(el.dataset.count);
-    const suffix = el.dataset.suffix || "";
-    const format = (n) => n.toLocaleString("pt-BR") + suffix;
+  // ---------- Tarefa de casa ----------
 
-    if (reduceMotion) { el.textContent = format(target); return; }
+  document.querySelectorAll(".task").forEach((task) => {
+    task.addEventListener("click", () => {
+      task.setAttribute("aria-pressed", task.getAttribute("aria-pressed") !== "true");
+    });
+  });
 
-    const duration = 1400;
-    const start = performance.now();
-    const tick = (now) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = format(Math.round(target * eased));
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
+  // ---------- Vantagens: "abrir conta" desbloqueia ----------
+
+  document.querySelectorAll("[data-unlock]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.closest(".slide").querySelector(".perks")?.classList.add("is-visible");
+    });
+  });
 
   goTo(readHash());
 })();
