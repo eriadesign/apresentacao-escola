@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Escola</title>
+  <meta name="description" content="Apresentação interativa da escola.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+  <main class="deck" aria-live="polite">
+
+    <!-- 1. Capa -->
+    <section class="slide slide--cover" data-title="Capa">
+      <div class="slide__inner">
+        <p class="eyebrow">[Rascunho] Apresentação institucional</p>
+        <h1 class="display">Nome da Escola</h1>
+        <p class="lead">Um subtítulo curto que resume a proposta da escola em uma frase.</p>
+        <p class="hint">Use <kbd>→</kbd> ou deslize para avançar</p>
+      </div>
+    </section>
+
+    <!-- 2. Sobre -->
+    <section class="slide" data-title="Sobre">
+      <div class="slide__inner split">
+        <div>
+          <p class="eyebrow">Quem somos</p>
+          <h2>Um parágrafo de apresentação vai aqui</h2>
+          <p>Texto provisório. Aqui entra a descrição da escola: história, proposta pedagógica e o que a torna diferente. Dois ou três parágrafos curtos funcionam melhor que um bloco longo.</p>
+        </div>
+        <blockquote class="quote">
+          “Uma frase de impacto, citação da direção ou lema da escola.”
+          <cite>Nome, cargo</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 3. Pilares (cards interativos) -->
+    <section class="slide" data-title="Pilares">
+      <div class="slide__inner">
+        <p class="eyebrow">Nossos pilares</p>
+        <h2>Clique em cada pilar para saber mais</h2>
+        <div class="cards">
+          <button class="card" aria-expanded="false">
+            <span class="card__icon" aria-hidden="true">📚</span>
+            <span class="card__title">Pilar um</span>
+            <span class="card__body">Descrição provisória do primeiro pilar, com uma ou duas frases.</span>
+          </button>
+          <button class="card" aria-expanded="false">
+            <span class="card__icon" aria-hidden="true">🤝</span>
+            <span class="card__title">Pilar dois</span>
+            <span class="card__body">Descrição provisória do segundo pilar, com uma ou duas frases.</span>
+          </button>
+          <button class="card" aria-expanded="false">
+            <span class="card__icon" aria-hidden="true">🌱</span>
+            <span class="card__title">Pilar três</span>
+            <span class="card__body">Descrição provisória do terceiro pilar, com uma ou duas frases.</span>
+          </button>
+          <button class="card" aria-expanded="false">
+            <span class="card__icon" aria-hidden="true">🚀</span>
+            <span class="card__title">Pilar quatro</span>
+            <span class="card__body">Descrição provisória do quarto pilar, com uma ou duas frases.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Linha do tempo -->
+    <section class="slide" data-title="Linha do tempo">
+      <div class="slide__inner">
+        <p class="eyebrow">Nossa história</p>
+        <h2>Marcos importantes</h2>
+        <ol class="timeline">
+          <li class="timeline__item is-active">
+            <button class="timeline__year">1990</button>
+            <p class="timeline__text">Fundação da escola. Texto provisório sobre o começo.</p>
+          </li>
+          <li class="timeline__item">
+            <button class="timeline__year">2005</button>
+            <p class="timeline__text">Expansão para o ensino médio. Texto provisório.</p>
+          </li>
+          <li class="timeline__item">
+            <button class="timeline__year">2015</button>
+            <p class="timeline__text">Novo prédio e laboratórios. Texto provisório.</p>
+          </li>
+          <li class="timeline__item">
+            <button class="timeline__year">Hoje</button>
+            <p class="timeline__text">Onde estamos e para onde vamos. Texto provisório.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Números -->
+    <section class="slide" data-title="Números">
+      <div class="slide__inner">
+        <p class="eyebrow">Em números</p>
+        <h2>Resultados que nos orgulham</h2>
+        <div class="stats">
+          <div class="stat"><span class="stat__value" data-count="1200">0</span><span class="stat__label">alunos</span></div>
+          <div class="stat"><span class="stat__value" data-count="85">0</span><span class="stat__label">professores</span></div>
+          <div class="stat"><span class="stat__value" data-count="35" data-suffix="+">0</span><span class="stat__label">anos de história</span></div>
+          <div class="stat"><span class="stat__value" data-count="98" data-suffix="%">0</span><span class="stat__label">de aprovação</span></div>
+        </div>
+        <p class="note">Números fictícios — substituir pelos dados reais.</p>
+      </div>
+    </section>
+
+    <!-- 6. Encerramento -->
+    <section class="slide slide--cover" data-title="Encerramento">
+      <div class="slide__inner">
+        <p class="eyebrow">Obrigado!</p>
+        <h2 class="display">Vamos conversar?</h2>
+        <p class="lead">contato@escola.com.br · (00) 0000-0000 · @escola</p>
+        <button class="btn" data-goto="0">Voltar ao início</button>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="controls" aria-label="Navegação dos slides">
+    <button class="controls__btn" data-action="prev" aria-label="Slide anterior">←</button>
+    <div class="dots" role="tablist"></div>
+    <button class="controls__btn" data-action="next" aria-label="Próximo slide">→</button>
+    <span class="counter" aria-live="polite"></span>
+    <button class="controls__btn" data-action="fullscreen" aria-label="Tela cheia (F)">⛶</button>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
