@@ -210,6 +210,29 @@ body.hide-todo .todo { text-decoration: none; }
   border-radius: var(--radius);
 }
 
+/* Card de destaque: filete dourado + ícone em círculo */
+.card--feature { padding: 1.9em 1.9em 2.2em; }
+.card--feature::before {
+  content: "";
+  display: block;
+  width: 2.2em;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gold);
+  margin-bottom: 1.3em;
+}
+.card--feature .card__title { font-size: 1.45em; margin: 0.9em 0 0.5em; }
+.feature__icon {
+  display: grid;
+  place-items: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 1.3em;
+}
+
 .card__icon { display: block; font-size: 1.8em; color: var(--gold); margin-bottom: 0.5em; }
 .card__value { font-size: 1.4em; font-weight: 600; line-height: 1.25; }
 .card__title { font-size: 1.3em; font-weight: 700; line-height: 1.2; margin-bottom: 0.3em; }
@@ -331,17 +354,6 @@ body.hide-todo .todo { text-decoration: none; }
 }
 .fact__value { font-size: 2.1em; font-weight: 800; line-height: 1; color: var(--gold); margin-bottom: 0.2em; }
 
-.agenda-card { align-self: end; justify-self: end; width: 100%; max-width: 21em; padding: 1.4em 1.6em; }
-.agenda { list-style: none; display: grid; gap: 0.75em; }
-.agenda li { display: flex; align-items: center; gap: 0.9em; font-family: var(--font-display); font-weight: 600; font-size: 1.1em; line-height: 1.2; }
-.agenda span {
-  flex: none;
-  color: var(--gold);
-  font-family: var(--font-body);
-  font-size: 0.7em;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
 
 /* ---------- Print/vídeo em moldura de navegador ---------- */
 .shot {
@@ -420,10 +432,10 @@ body.hide-todo .todo { text-decoration: none; }
 .tools__check { margin-left: auto; opacity: 0; color: var(--gold); font-size: 1.1em; transition: opacity var(--dur); }
 .tools__tab.is-visited .tools__check { opacity: 1; }
 .tools__tab[aria-selected="true"] .tools__check { color: var(--on-gold); }
-.tools__panel { display: grid; gap: 1em; animation: fade-in 0.4s var(--ease); }
-.tools .shot__screen { aspect-ratio: auto; height: 15.5em; }
-.tools__caption { display: flex; align-items: center; justify-content: space-between; gap: 1.5em; }
-.tools__caption p { font-size: 1.1em; }
+.tools__panel { display: grid; grid-template-columns: 1fr 11em; gap: 1.6em; align-items: center; animation: fade-in 0.4s var(--ease); }
+.tools .shot__screen { aspect-ratio: 1920 / 990; }
+.tools__caption { display: flex; flex-direction: column; align-items: flex-start; gap: 1.2em; }
+.tools__caption p { font-size: 1.05em; color: var(--muted); }
 
 @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
@@ -610,7 +622,7 @@ body.hide-todo .todo { text-decoration: none; }
 .plans__axis { display: inline-flex; align-items: center; gap: 0.4em; color: var(--muted); font-size: 0.75em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 
 .plan {
-  padding: 2em 2.2em;
+  padding: 1.6em 2.2em;
   border: 1px solid var(--line);
   border-radius: var(--radius-panel);
   background: rgba(0, 0, 0, 0.6);
@@ -622,8 +634,8 @@ body.hide-todo .todo { text-decoration: none; }
   justify-content: space-between;
   align-items: flex-end;
   gap: 2em;
-  padding-bottom: 1.2em;
-  margin-bottom: 1.2em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
   border-bottom: 1px solid var(--line-soft);
 }
 .plan__for { font-size: 1.6em; font-weight: 500; line-height: 1.2; max-width: 18em; }
@@ -848,7 +860,6 @@ body.chrome-off .topbar { opacity: 0; }
   .split { gap: 2em; }
   .photo-bleed { width: 100%; bottom: auto; height: 45%; -webkit-mask-image: linear-gradient(0deg, transparent, #000 50%); mask-image: linear-gradient(0deg, transparent, #000 50%); opacity: 0.45; }
   .photo-layout { min-height: 0; }
-  .agenda-card { justify-self: stretch; max-width: none; }
   .badge-top1 { width: auto; }
   .partner { grid-template-columns: 1fr; }
   .partner__link { width: 1px; height: 3em; margin: 0 auto; }
@@ -859,7 +870,7 @@ body.chrome-off .topbar { opacity: 0; }
   .journey { flex-direction: column; }
   .journey__arrow { width: 2px; height: 2em; }
   .journey__arrow::after { display: none; }
-  .tools__caption { flex-direction: column; align-items: flex-start; }
+  .tools__panel { grid-template-columns: 1fr; }
   .dots { display: none; }
 }
 
