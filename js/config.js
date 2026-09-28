@@ -2,7 +2,7 @@
 // Preencha cada um com a URL completa (ex.: "https://...").
 // Enquanto estiver vazio, o botão aparece como "link pendente" e o QR code não é gerado.
 window.AUVP_LINKS = {
-  minhaAuvp: "",
+  minhaAuvp: "https://minha.auvp.com.br/",
   aulas: "",
   comunidade: "",
   minhasFinancas: "",

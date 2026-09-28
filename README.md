@@ -40,6 +40,8 @@ O slide atual fica na URL (`#12`), então dá para abrir direto num slide.
 | Prints das ferramentas e foto do Raul | `assets/img/` (nomes abaixo) |
 | Cores e fontes | variáveis no topo de `css/styles.css` |
 
+O visual segue o [design system AUVP](https://central-produtos.vercel.app/design-system), tema **Escola** (modo escuro): Anek Latin nos títulos, Roboto no corpo, Sora nos botões, dourado `#F6C655`, cards com raio de 12px e ícones [Phosphor](https://phosphoricons.com).
+
 Trechos com **sublinhado tracejado laranja** (`class="todo"`) ainda precisam ser preenchidos ou confirmados.
 
 ### Imagens esperadas em `assets/img/`
@@ -48,7 +50,6 @@ Enquanto a imagem não existe, aparece um placeholder com o nome do arquivo.
 
 | Arquivo | Onde aparece |
 | --- | --- |
-| `minha-auvp.png` | Bloco 1 |
 | `aulas.png` | Bloco 2 · Plataforma de aulas |
 | `comunidade.png` | Bloco 2 · Comunidade |
 | `minhas-financas.png` | Bloco 2 · Minhas Finanças |
