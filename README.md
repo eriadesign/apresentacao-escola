@@ -48,10 +48,11 @@ Trechos com **sublinhado tracejado laranja** (`class="todo"`) ainda precisam ser
 
 Os prints das ferramentas, a foto de "Antes de começar" e o vídeo da Minha AUVP vêm do CDN da AUVP (`cdn.asupernova.com.br`), direto no `index.html`.
 
-Ainda faltam duas imagens locais:
+A foto da sede (`assets/img/sede.jpg`) é uma cópia otimizada de 2400 px da original do CDN, que tem 39 MB.
 
-- `assets/img/raul.jpg`: avatar do Raul na tarefa de casa (enquanto não existe, aparecem as iniciais "RS").
-- `assets/img/abra-sua-conta.jpg`: foto da comunidade no slide "Abra sua conta" (enquanto não existe, aparece um espaço reservado).
+Ainda falta a foto da comunidade no slide "Abra sua conta": salve como `assets/img/abra-sua-conta.jpg` (enquanto não existe, aparece um espaço reservado).
+
+O ecossistema (`js/ecossistema.js`) reproduz a visualização do [site-vendas](https://eriadesign.github.io/site-vendas/) e usa as imagens publicadas nele.
 
 ## Fluxo de trabalho
 
