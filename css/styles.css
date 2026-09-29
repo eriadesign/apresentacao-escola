@@ -273,24 +273,6 @@ body.hide-todo .todo { text-decoration: none; }
 [data-link].is-pending { cursor: not-allowed; }
 .btn.is-pending { background: var(--muted-bg); border: 1px dashed var(--todo); color: var(--muted); }
 
-/* Aba em pílula (Grade Curricular) */
-.pill {
-  position: relative;
-  padding: 0.9em 1.6em;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--muted);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: all var(--dur) ease;
-}
-.pill:hover { color: var(--ink); border-color: var(--gold); }
-.pill[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
-
 /* ---------- Layout em duas colunas ---------- */
 .split {
   display: grid;
@@ -729,72 +711,100 @@ body.hide-todo .todo { text-decoration: none; }
 .fee__points strong { color: var(--ink); }
 
 /* ---------- Planos ---------- */
-.plans__scale { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.2em; margin-bottom: 1.4em; }
-.plans__tabs { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4em; }
-.plans__tabs::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 1px;
-  background: linear-gradient(90deg, var(--line), var(--gold));
+.plans__intro { max-width: 46em; margin: -0.2em 0 1.6em; }
+.plans__intro strong { color: var(--ink); }
+
+/* Seletor segmentado: um botão por tipo de plano */
+.seg {
+  display: inline-flex;
+  gap: 0.25em;
+  margin-bottom: 1em;
+  padding: 0.3em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
 }
-.plans__tabs .pill { background: #0b0b0b; }
-.plans__tabs .pill[aria-selected="true"] { background: var(--gold); }
-.plans__axis { display: inline-flex; align-items: center; gap: 0.4em; color: var(--muted); font-size: 0.75em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.seg__btn {
+  padding: 0.6em 1.3em;
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--dur) ease;
+}
+.seg__btn:hover { color: var(--ink); }
+.seg__btn[aria-selected="true"] { background: var(--gold); color: var(--on-gold); }
 
 .plan {
-  padding: 1.6em 2.2em;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-panel);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
   animation: fade-in 0.4s var(--ease);
 }
-.plan__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2em;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-  border-bottom: 1px solid var(--line-soft);
-}
-.plan__for { font-size: 1.6em; font-weight: 500; line-height: 1.2; max-width: 18em; }
-.plan__for strong { color: var(--gold); }
-.plan__fee { flex: none; font-size: 2.4em; font-weight: 800; color: var(--gold); text-align: right; line-height: 1.05; }
-.plan__fee--text { font-size: 1.5em; max-width: 10em; }
-.plan__list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em 2em; font-size: 1.1em; }
-.plan__list li { display: flex; gap: 0.6em; align-items: flex-start; }
-.plan__list .ph { flex: none; color: var(--gold); margin-top: 0.2em; }
-.plan__note {
+.plan__body { padding: 1.6em 1.8em; }
+.plan__desc { font-size: 1.15em; line-height: 1.45; margin-bottom: 1.2em; }
+.plan__level {
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  margin-top: 1.2em;
-  padding: 0.7em 1em;
-  border-radius: 8px;
-  background: var(--muted-bg);
+  gap: 0.7em;
   color: var(--muted);
-  font-size: 0.95em;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.plan__note .ph { color: var(--gold); font-size: 1.2em; }
-
-/* ---------- Passos / QR ---------- */
-.steps { list-style: none; display: grid; gap: 1em; margin-top: 0.4em; }
-.steps li {
+.meter { display: inline-flex; gap: 0.25em; }
+.meter i { width: 1.8em; height: 0.4em; border-radius: 2px; background: var(--line); }
+.meter i.is-on { background: var(--gold); }
+.plan__fee {
   display: flex;
-  gap: 1.1em;
-  align-items: center;
-  padding: 1em 1.3em;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
-  background: rgba(0, 0, 0, 0.6);
-  font-size: 1.1em;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.6em 1.8em;
+  border-left: 1px solid var(--line-soft);
+  background: rgba(246, 198, 85, 0.05);
 }
-.steps__num { flex: none; color: var(--gold); font-weight: 700; font-size: 0.75em; letter-spacing: 0.1em; }
+.plan__fee-value { margin-bottom: 0.2em; font-family: var(--font-display); font-size: 1.9em; font-weight: 800; line-height: 1.1; color: var(--gold); }
+.plan__fee-value small { font-size: 0.5em; font-weight: 600; color: var(--muted); }
+.plan__fee-value--text { font-size: 1.35em; }
 
+/* ---------- Abra sua conta ---------- */
+.account { display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.4em; align-items: stretch; }
+.account__info { display: grid; gap: 0.9em; align-content: start; }
+.account__callout { margin-top: 0; }
+.grid--2 { grid-template-columns: 1fr 1fr; }
+.account__card { padding: 0.9em 1.2em; }
+.account__howto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.4em; }
+.account__callout { padding: 0.75em 1.2em; }
+.account__card:hover { transform: none; }
+.account__title { display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.15em; font-weight: 700; }
+.account__title .ph { color: var(--gold); font-size: 1.2em; }
+.account__card .muted { font-size: 0.92em; line-height: 1.4; }
+.account__important {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0 0 0.4em;
+  color: var(--gold);
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.account__list { list-style: none; display: grid; gap: 0.3em; color: var(--muted); font-size: 0.9em; }
+.account__list li::before { content: "•"; margin-right: 0.5em; color: var(--gold); }
+.account__list strong { color: var(--ink); white-space: nowrap; }
+.account__photo { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius); min-height: 16em; }
+.account__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- QR code ---------- */
 .qr-card {
   justify-self: center;
   width: 100%;
@@ -882,29 +892,36 @@ body.hide-todo .todo { text-decoration: none; }
 .eco__name { font-size: 2.8em; font-weight: 800; line-height: 1.05; margin-bottom: 0.35em; }
 .eco__detail p:last-child { font-size: 1.25em; color: var(--muted); }
 
-/* ---------- Lembretes ---------- */
-.reminders { list-style: none; display: grid; gap: 0.9em; max-width: 46em; }
-.reminders li {
+/* ---------- Próximos passos e avisos ---------- */
+.notices { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
+.notice {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.3em;
-  padding: 1.2em 1.5em;
+  gap: 0.6em;
+  padding: 1.8em 1.6em;
   border: 1px solid var(--line-soft);
+  border-top: 3px solid var(--gold);
   border-radius: var(--radius);
   background: var(--card);
+  text-align: center;
 }
-.reminders__icon {
-  flex: none;
+.notice__icon {
   display: grid;
   place-items: center;
-  width: 2.4em;
-  height: 2.4em;
-  border-radius: var(--radius);
+  width: 2.8em;
+  height: 2.8em;
+  margin-bottom: 0.3em;
+  border-radius: 50%;
   background: var(--gold-soft);
-  border: 1px solid var(--line);
   color: var(--gold);
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
+.notice__title { font-family: var(--font-display); font-size: 1.3em; font-weight: 700; }
+.notice__title span { color: var(--gold); }
+.notice .muted { font-size: 0.95em; }
+.notice .muted strong { color: var(--ink); }
+.notice__highlight { width: 100%; padding-top: 0.7em; border-top: 1px solid var(--line-soft); font-size: 0.95em; }
 
 /* ==========================================================
    Chrome: topo, progresso e controles
@@ -979,7 +996,10 @@ body.chrome-off .topbar { opacity: 0; }
   h2 { font-size: 2em; }
   .display, .display--md, .slide--divider .display { font-size: 2.8em; }
   .divider__num { font-size: 6em; }
-  .grid--3, .split, .split--media, .split--qr, .tools, .eco, .plan__list, .photo-layout, .lives, .fee, .homework, .sempre__track { grid-template-columns: 1fr; }
+  .grid--3, .split, .split--media, .split--qr, .tools, .eco, .photo-layout, .lives, .fee, .homework, .sempre__track { grid-template-columns: 1fr; }
+  .plan, .account, .notices, .grid--2, .account__howto { grid-template-columns: 1fr; }
+  .plan__fee { border-left: 0; border-top: 1px solid var(--line-soft); }
+  .seg { display: flex; flex-wrap: wrap; border-radius: var(--radius); }
   .homework::before { display: none; }
   .photo-layout--right .photo-layout__content { grid-column: auto; }
   .lives__time { font-size: 4em; }
@@ -989,10 +1009,6 @@ body.chrome-off .topbar { opacity: 0; }
   .badge-top1 { width: auto; }
   .partner { grid-template-columns: 1fr; }
   .partner__link { width: 1px; height: 3em; margin: 0 auto; }
-  .plans__scale, .plans__tabs { grid-template-columns: 1fr; }
-  .plans__tabs::before, .plans__axis { display: none; }
-  .plan__head { flex-direction: column; align-items: flex-start; }
-  .plan__fee { text-align: left; }
   .tools__panel { grid-template-columns: 1fr; }
   .dots { display: none; }
 }

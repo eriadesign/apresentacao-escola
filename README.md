@@ -48,7 +48,10 @@ Trechos com **sublinhado tracejado laranja** (`class="todo"`) ainda precisam ser
 
 Os prints das ferramentas, a foto de "Antes de começar" e o vídeo da Minha AUVP vêm do CDN da AUVP (`cdn.asupernova.com.br`), direto no `index.html`.
 
-Falta só a foto do Raul para o avatar da tarefa de casa: salve como `assets/img/raul.jpg`. Enquanto ela não existe, aparecem as iniciais "RS".
+Ainda faltam duas imagens locais:
+
+- `assets/img/raul.jpg`: avatar do Raul na tarefa de casa (enquanto não existe, aparecem as iniciais "RS").
+- `assets/img/abra-sua-conta.jpg`: foto da comunidade no slide "Abra sua conta" (enquanto não existe, aparece um espaço reservado).
 
 ## Fluxo de trabalho
 

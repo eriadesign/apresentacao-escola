@@ -408,58 +408,56 @@
     </section>
 
     <!-- 8.2 Planos -->
-    <section class="slide theme-capital" data-title="Planos" data-block="Bloco 3 · Planos">
+    <section class="slide theme-capital" data-title="Planos" data-block="Bloco 3 · Modelos de contratação">
       <div class="slide__inner">
         <p class="eyebrow">Planos</p>
-        <h2>Qual plano combina com você?</h2>
+        <h2>Modelos de contratação</h2>
+        <p class="plans__intro muted">A AUVP entende que cada pessoa investe de um jeito. Por isso, oferece diferentes planos, que combinam com o momento de cada investidor: são três opções com <strong>taxas justas, benefícios reais e zero conflito de interesses</strong>.</p>
+
         <div class="plans" data-tabs>
-          <div class="plans__scale" role="tablist">
-            <span class="plans__axis plans__axis--start"><i class="ph ph-arrow-left"></i> Mais autonomia</span>
-            <div class="plans__tabs">
-              <button class="pill" role="tab" data-tab="sevira" aria-selected="true">Se Vira Aí</button>
-              <button class="pill" role="tab" data-tab="mediz">Me Diz O Que Fazer</button>
-              <button class="pill" role="tab" data-tab="resolve">Resolve Aí</button>
-            </div>
-            <span class="plans__axis plans__axis--end">Mais acompanhamento <i class="ph ph-arrow-right"></i></span>
+          <div class="seg" role="tablist">
+            <button class="seg__btn" role="tab" data-tab="sevira" aria-selected="true">Se Vira Aí</button>
+            <button class="seg__btn" role="tab" data-tab="mediz">Me Diz O Que Fazer</button>
+            <button class="seg__btn" role="tab" data-tab="resolve">Resolve Aí</button>
           </div>
 
           <div class="plan" data-panel="sevira">
-            <div class="plan__head">
-              <p class="plan__for">Para quem quer investir com <strong>total autonomia</strong></p>
-              <p class="plan__fee"><span class="todo" title="Confirmar: ao mês ou ao ano?">0,3% a 0,4% ao mês</span></p>
+            <div class="plan__body">
+              <p class="label">Plano "Se Vira Aí" · Autoatendimento</p>
+              <p class="plan__desc">O membro investe com autonomia total, usando a plataforma e usufruindo dos benefícios de ser membro da AUVP Capital.</p>
+              <p class="plan__level"><span class="meter"><i class="is-on"></i><i></i><i></i></span>Acompanhamento</p>
             </div>
-            <ul class="plan__list">
-              <li><i class="ph ph-check"></i>Corretagem zero</li>
-              <li><i class="ph ph-check"></i>Cashback em renda fixa</li>
-              <li><i class="ph ph-check"></i>Acesso aos relatórios</li>
-              <li><i class="ph ph-check"></i>Todos os benefícios de membro</li>
-            </ul>
-            <p class="plan__note"><i class="ph ph-warning"></i> Não inclui suporte técnico nem monitoramento da carteira.</p>
+            <div class="plan__fee">
+              <p class="label">Taxa</p>
+              <p class="plan__fee-value">0,025% a 0,033% <small>a.m.</small></p>
+              <p class="small muted">(0,3% a 0,4% a.a.)</p>
+            </div>
           </div>
 
           <div class="plan" data-panel="mediz" hidden>
-            <div class="plan__head">
-              <p class="plan__for">Para quem quer <strong>clareza</strong> para montar ou ajustar os investimentos</p>
-              <p class="plan__fee"><span class="todo" title="Confirmar: ao mês ou ao ano?">0,9% ao mês</span></p>
+            <div class="plan__body">
+              <p class="label">Plano "Me Diz O Que Fazer" · Básico</p>
+              <p class="plan__desc">Orientação em investimentos para quem quer definir a direção na hora de montar ou ajustar a carteira.</p>
+              <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i></i></span>Acompanhamento</p>
             </div>
-            <ul class="plan__list">
-              <li><i class="ph ph-check"></i>Direcionamento sob demanda</li>
-              <li><i class="ph ph-check"></i>Carteiras recomendadas para o seu perfil</li>
-              <li><i class="ph ph-check"></i>Atendimento para tirar dúvidas e organizar sua estratégia</li>
-            </ul>
+            <div class="plan__fee">
+              <p class="label">Taxa</p>
+              <p class="plan__fee-value">0,075% <small>a.m.</small></p>
+              <p class="small muted">(0,9% a.a.)</p>
+            </div>
           </div>
 
           <div class="plan" data-panel="resolve" hidden>
-            <div class="plan__head">
-              <p class="plan__for">Para quem já tem <strong>mais de R$ 300 mil</strong> investidos</p>
-              <p class="plan__fee plan__fee--text">Taxa variável, conforme o patrimônio</p>
+            <div class="plan__body">
+              <p class="label">Plano "Resolve Aí" · Consultoria completa</p>
+              <p class="plan__desc">Um serviço de consultoria completa, com acompanhamento ativo, personalização e responsabilidade técnica sobre o patrimônio orientado.</p>
+              <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span>Acompanhamento</p>
             </div>
-            <ul class="plan__list">
-              <li><i class="ph ph-check"></i>Consultoria completa e exclusiva: a responsabilidade técnica é nossa</li>
-              <li><i class="ph ph-check"></i>Acompanhamento ativo e estratégia 100% personalizada</li>
-              <li><i class="ph ph-check"></i>Consultor dedicado no WhatsApp</li>
-              <li><i class="ph ph-check"></i>Reuniões bimestrais de alinhamento</li>
-            </ul>
+            <div class="plan__fee">
+              <p class="label">Taxa</p>
+              <p class="plan__fee-value plan__fee-value--text">Definida conforme o patrimônio orientado</p>
+              <p class="small muted">(variável)</p>
+            </div>
           </div>
         </div>
       </div>
@@ -467,20 +465,41 @@
 
     <!-- 8.3 Abra sua conta -->
     <section class="slide theme-capital" data-title="Abra sua conta" data-block="Bloco 3 · Abra sua conta">
-      <div class="slide__inner split split--qr">
-        <div>
-          <p class="eyebrow">Na prática</p>
-          <h2>Abra sua conta na <span class="gold">AUVP Capital</span></h2>
-          <ol class="steps">
-            <li><span class="steps__num">01</span><p><span class="todo">Acesse o link ou aponte a câmera para o QR code</span></p></li>
-            <li><span class="steps__num">02</span><p><span class="todo">Preencha seus dados para abrir sua conta no BTG, vinculada à AUVP Capital</span></p></li>
-            <li><span class="steps__num">03</span><p><span class="todo">Escolha seu plano e pronto: suas vantagens estão desbloqueadas</span></p></li>
-          </ol>
-        </div>
-        <div class="qr-card">
-          <div class="qr" data-qr="abrirConta"></div>
-          <p class="qr-card__title">Abra sua conta</p>
-          <p class="small">Aponte a câmera do celular</p>
+      <div class="slide__inner">
+        <p class="eyebrow">Na prática</p>
+        <h2>Abra sua conta na <span class="gold">AUVP Capital</span></h2>
+        <div class="account">
+          <div class="account__info">
+            <p class="callout account__callout">Ao abrir uma conta, você terá acesso às plataformas <strong>banking</strong> e de <strong>investimentos</strong>.</p>
+            <div class="grid grid--2">
+              <div class="card account__card">
+                <p class="account__title"><i class="ph ph-trend-up"></i>Investimentos</p>
+                <p class="muted">Ambiente para acessar o mercado financeiro, investir e acompanhar ativos, com suporte de consultoria.</p>
+              </div>
+              <div class="card account__card">
+                <p class="account__title"><i class="ph ph-bank"></i>Conta Banking</p>
+                <p class="muted">Utilizada para a movimentação financeira do dia a dia, com total controle e agilidade.</p>
+              </div>
+            </div>
+            <div class="card account__card account__howto">
+              <div>
+                <p class="account__title"><i class="ph ph-device-mobile"></i>Como abrir</p>
+                <p class="muted">Pode ser feito diretamente pelo site ou aplicativo <strong>“BTG Investimentos”</strong>.</p>
+              </div>
+              <div>
+              <p class="account__important"><i class="ph-fill ph-warning-circle"></i>Importante</p>
+              <ul class="account__list">
+                <li>Tenha em mãos seu documento com foto.</li>
+                <li>Se não for nacional, contate o suporte: <strong>(62) 3413-9882</strong>.</li>
+                <li>Quem já tem BTG pode solicitar troca de assessoria.</li>
+              </ul>
+              </div>
+            </div>
+          </div>
+          <figure class="account__photo">
+            <span class="shot__placeholder">Foto da comunidade AUVP<small>envie o link da imagem</small></span>
+            <img src="assets/img/abra-sua-conta.jpg" alt="Membros da comunidade AUVP reunidos em um evento">
+          </figure>
         </div>
       </div>
     </section>
@@ -559,31 +578,28 @@
     </section>
 
     <!-- 9.1 Avisos -->
-    <section class="slide" data-title="Avisos" data-block="Bloco 4 · Avisos e próximos passos">
+    <section class="slide" data-title="Avisos" data-block="Bloco 4 · Próximos passos e avisos">
       <div class="slide__inner">
         <p class="eyebrow">Antes de ir</p>
-        <h2>3 lembretes importantes</h2>
-        <ol class="reminders">
-          <li class="fragment">
-            <span class="reminders__icon"><i class="ph ph-play-circle"></i></span>
-            <div>
-              <p class="card__title">Assista ao módulo de boas-vindas</p>
-              <p class="muted">É a base para aproveitar todo o resto da sua jornada.</p>
-            </div>
+        <h2>Próximos passos e <span class="gold">avisos importantes</span></h2>
+        <ol class="notices">
+          <li class="notice fragment">
+            <span class="notice__icon"><i class="ph-fill ph-play"></i></span>
+            <p class="notice__title"><span>1.</span> Módulo Boas-Vindas</p>
+            <p class="muted">Acesse a plataforma e assista à aula introdutória.</p>
+            <p class="notice__highlight"><strong>É importante</strong> assistir antes do nosso primeiro encontro oficial ao vivo!</p>
           </li>
-          <li class="fragment">
-            <span class="reminders__icon"><i class="ph ph-broadcast"></i></span>
-            <div>
-              <p class="card__title">Live inaugural</p>
-              <p class="muted"><span class="todo">[data]</span>, às <span class="todo">[horário]</span> · <span class="todo">[onde]</span></p>
-            </div>
+          <li class="notice fragment">
+            <span class="notice__icon"><i class="ph ph-bank"></i></span>
+            <p class="notice__title"><span>2.</span> Conta AUVP Capital</p>
+            <p class="muted">Caso seja do seu interesse, inicie hoje mesmo o processo de abertura de conta.</p>
+            <p class="notice__highlight">Aproveite a gestão integrada de banking e investimentos <strong>sem conflito de interesses</strong>.</p>
           </li>
-          <li class="fragment">
-            <span class="reminders__icon"><i class="ph ph-lock-simple-open"></i></span>
-            <div>
-              <p class="card__title">Abra sua conta na AUVP Capital</p>
-              <p class="muted">E desbloqueie todas as suas vantagens de membro.</p>
-            </div>
+          <li class="notice fragment">
+            <span class="notice__icon"><i class="ph ph-calendar-check"></i></span>
+            <p class="notice__title"><span>3.</span> Live Inaugural</p>
+            <p class="muted">Fique de olho nos nossos grupos! Em breve enviaremos a <strong>data exata</strong> da sua Live Inaugural.</p>
+            <p class="notice__highlight">Anote na agenda para não perder o pontapé inicial.</p>
           </li>
         </ol>
       </div>

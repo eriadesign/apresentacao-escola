@@ -9,6 +9,5 @@ window.AUVP_LINKS = {
   diagramaCerrado: "https://ferramentas.auvp.com.br/home",
   analitica: "https://analitica.auvp.com.br/",
   apresenteSe: "",   // post "Apresente-se" do Raul na comunidade
-  abrirConta: "",    // abertura de conta na AUVP Capital (vira QR code no slide "Abra sua conta")
   avaliacao: "",     // formulário de avaliação (vira QR code no slide de dúvidas)
 };
