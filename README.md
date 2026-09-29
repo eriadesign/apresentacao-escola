@@ -52,7 +52,7 @@ A foto da sede (`assets/img/sede.jpg`) é uma cópia otimizada de 2400 px da ori
 
 Ainda falta a foto da comunidade no slide "Abra sua conta": salve como `assets/img/abra-sua-conta.jpg` (enquanto não existe, aparece um espaço reservado).
 
-O ecossistema (`js/ecossistema.js`) reproduz a visualização do [site-vendas](https://eriadesign.github.io/site-vendas/) e usa as imagens publicadas nele.
+O ecossistema (`js/ecossistema.js`) mostra os serviços da AUVP em órbita em volta do olho, baseado na visualização do [site-vendas](https://eriadesign.github.io/site-vendas/) e usando as imagens publicadas nele.
 
 ## Fluxo de trabalho
 

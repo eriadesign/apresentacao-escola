@@ -165,8 +165,10 @@ body.hide-todo .todo { text-decoration: none; }
   font-size: 9em;
   font-weight: 800;
   line-height: 1;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-to) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
-  -webkit-text-stroke: 2px var(--gold);
   margin-bottom: 0.1em;
 }
 
@@ -505,8 +507,7 @@ body.hide-todo .todo { text-decoration: none; }
   font-size: 2.6em;
   font-weight: 800;
   line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--gold);
+  color: rgba(246, 198, 85, 0.35);
   transition: color var(--dur);
 }
 .hw__check {
@@ -528,7 +529,7 @@ body.hide-todo .todo { text-decoration: none; }
 
 .apresente { display: grid; grid-template-columns: 1fr 1.8fr; gap: 1.4em; align-items: center; margin: 1.1em 0 0; }
 .apresente figcaption { display: flex; align-items: center; justify-content: flex-end; gap: 0.5em; color: var(--gold); font-family: var(--font-display); font-weight: 600; text-align: right; }
-.apresente figcaption .ph { font-size: 1.4em; transform: scaleX(-1); }
+.apresente figcaption .ph { font-size: 1.4em; }
 .apresente a { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8); }
 .apresente img { width: 100%; }
 
@@ -621,6 +622,7 @@ body.hide-todo .todo { text-decoration: none; }
 .perks.is-visible .perk__lock .ph-lock-simple { display: none; }
 .perks.is-visible .perk__lock .ph-lock-simple-open { display: inline-block; }
 
+.perks__lead { margin: -0.3em 0 1.2em; font-size: 1.1em; }
 .perks__more { margin-top: 1.1em; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6em; color: var(--muted); }
 .perks__more span {
   padding: 0.4em 1em;
@@ -747,7 +749,7 @@ body.hide-todo .todo { text-decoration: none; }
 .account__info { display: grid; gap: 0.7em; align-content: start; }
 .account__callout { margin-top: 0; }
 .grid--2 { grid-template-columns: 1fr 1fr; }
-.account__card { padding: 0.9em 1.2em; }
+.account__card { padding: 0.8em 1.2em; }
 .account__howto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.4em; }
 .account__callout { padding: 0.75em 1.2em; }
 .account__card:hover { transform: none; }
@@ -795,55 +797,70 @@ body.hide-todo .todo { text-decoration: none; }
 .qr-card__title { margin-top: 1em; font-size: 1.4em; font-weight: 800; }
 .qr-card .small { color: #52525b; }
 
-/* ---------- Ecossistema em órbitas (reproduzido do site-vendas) ---------- */
-/* Um núcleo e duas frentes: o olho no meio, ligado por um fio a cada
-   frente; cada frente é um disco com os produtos em volta, como
-   satélites. O ângulo de cada satélite vem inline (--a) e o raio do CSS. */
-.eco-wrap { display: flex; flex-direction: column; align-items: center; }
-.eco-topo { text-align: center; }
-.eco-topo h2 { margin-inline: auto; margin-bottom: 0.2em; }
-.eco-grupos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  --sat: 3.4em;
-  --disco: 6.4em;
-  --olho: 4.6em;
-  --rotulo: 1.8em;
-}
-.eco-frente {
+/* ---------- Ecossistema: o olho no centro, os serviços em órbita ---------- */
+.split--eco { grid-template-columns: 1fr 1.45fr; gap: 2em; }
+.eco-hint { display: inline-flex; align-items: center; gap: 0.5em; margin-top: 1.4em; color: var(--gold); font-size: 0.9em; font-weight: 500; }
+.eco-hint .ph { font-size: 1.3em; }
+
+.orbit {
+  --sat: 4.4em;
+  --raio: 8.4em;
+  --core: 5.6em;
   position: relative;
-  flex: none;
-  --raio: calc((var(--disco) / 2 + var(--sat) / 2 + 1.3em) * var(--fator, 1));
-  width: calc(2 * var(--raio) + var(--sat) + 2 * var(--rotulo));
-  height: calc(2 * var(--raio) + var(--sat) + 2 * var(--rotulo));
+  justify-self: center;
+  width: calc(2 * var(--raio) + var(--sat));
+  height: calc(2 * var(--raio) + var(--sat));
+  margin: 1.6em 0;
 }
-.eco-fio { flex: 0 1 2.6em; min-width: 1.2em; height: 1.5px; background: linear-gradient(90deg, rgba(246, 198, 85, 0), rgba(246, 198, 85, 0.9)); }
-.eco-olho + .eco-fio { background: linear-gradient(90deg, rgba(246, 198, 85, 0.9), rgba(246, 198, 85, 0)); }
-.eco-olho {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: var(--olho);
-  height: var(--olho);
+.orbit__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(2 * var(--raio));
+  height: calc(2 * var(--raio));
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(246, 198, 85, 0.35);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(246, 198, 85, 0.16) 0%, transparent 72%);
 }
-.eco-olho img { width: 82%; }
-.eco-disco {
+/* um arco dourado percorre a órbita devagar */
+.orbit__ring--spin {
+  border: 2px solid transparent;
+  border-top-color: var(--gold);
+  border-right-color: rgba(246, 198, 85, 0.25);
+  animation: orbit-spin 16s linear infinite;
+}
+@keyframes orbit-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.orbit__core {
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--core);
+  height: var(--core);
   transform: translate(-50%, -50%);
-  width: max-content;
-  text-align: center;
-  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 198, 85, 0.2) 0%, rgba(0, 0, 0, 0.9) 70%);
+  box-shadow: 0 0 0 1px rgba(246, 198, 85, 0.4), 0 0 60px rgba(246, 198, 85, 0.25);
 }
-.eco-disco b { display: block; font-family: var(--font-display); font-size: 1.15em; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.orbit__core img { width: 78%; }
+/* ondas que saem do olho */
+.orbit__core::before,
+.orbit__core::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(246, 198, 85, 0.5);
+  border-radius: 50%;
+  animation: core-wave 3.2s ease-out infinite;
+}
+.orbit__core::after { animation-delay: 1.6s; }
+@keyframes core-wave { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.1); opacity: 0; } }
 
-/* Cada produto é um satélite na borda do disco: o ângulo posiciona e o
-   giro contrário devolve o card à horizontal */
+/* Cada serviço é um satélite: o ângulo posiciona e o giro contrário
+   devolve o card à horizontal */
 .eorb {
   position: absolute;
   left: 50%;
@@ -855,44 +872,39 @@ body.hide-todo .todo { text-decoration: none; }
   padding: 0;
   transform: rotate(var(--a)) translate(var(--raio)) rotate(calc(-1 * var(--a)));
 }
-.eorb-in { display: block; width: 100%; height: 100%; animation: eco-aparece 0.4s ease backwards; animation-delay: calc(var(--j, 0) * 45ms + 160ms); }
+.eorb-in { display: block; width: 100%; height: 100%; animation: eco-aparece 0.45s ease backwards; animation-delay: calc(var(--j, 0) * 60ms + 200ms); }
 .eorb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: 1.5px solid var(--gold);
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: var(--card);
-  box-shadow: 0 8px 18px -8px rgba(246, 198, 85, 0.5);
-  transition: transform 0.22s var(--ease), box-shadow 0.22s;
+  box-shadow: 0 10px 22px -10px rgba(246, 198, 85, 0.55);
+  transition: transform 0.24s var(--ease), box-shadow 0.24s;
 }
-.eorb:hover .eorb-img { transform: scale(1.08); box-shadow: 0 12px 24px -8px rgba(246, 198, 85, 0.8); }
-/* Fio de cada satélite até a frente: nasce na borda do card e some antes do nome */
+.eorb:hover .eorb-img { transform: scale(1.08); box-shadow: 0 14px 28px -8px rgba(246, 198, 85, 0.8); }
+/* fio do satélite até o olho */
 .eorb::before {
   content: "";
   position: absolute;
   z-index: -1;
   left: 50%;
   top: 50%;
-  width: max(0px, calc(var(--raio) - var(--disco) / 2 - var(--sat) / 2));
-  height: 1.5px;
+  width: max(0px, calc(var(--raio) - var(--core) / 2 - var(--sat) / 2));
+  height: 1px;
   transform-origin: 0 50%;
   transform: rotate(calc(var(--a) + 180deg)) translateX(calc(var(--sat) / 2));
-  background: linear-gradient(90deg, rgba(246, 198, 85, 0.85) 0%, rgba(246, 198, 85, 0.5) 42%, rgba(246, 198, 85, 0) 100%);
+  background: linear-gradient(90deg, rgba(246, 198, 85, 0.7), rgba(246, 198, 85, 0.05));
   pointer-events: none;
 }
-/* O nome sobe nos satélites de cima e desce nos de baixo */
-.eorb b {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 0.35em);
-  transform: translateX(-50%);
-  width: calc(var(--sat) + 3.8em);
-  text-align: center;
-  line-height: 1.15;
-}
-.eorb b span { font-family: var(--font-display); font-size: 0.72em; font-weight: 600; transition: color 0.2s; }
-.eorb.cima b { top: auto; bottom: calc(100% + 0.35em); }
+/* o nome fica sempre do lado de fora da órbita */
+.eorb b { position: absolute; white-space: nowrap; line-height: 1.15; }
+.eorb b span { font-family: var(--font-display); font-size: 0.85em; font-weight: 600; transition: color 0.2s; }
+.eorb--baixo b { left: 50%; top: calc(100% + 0.4em); transform: translateX(-50%); }
+.eorb--cima b { left: 50%; bottom: calc(100% + 0.4em); transform: translateX(-50%); }
+.eorb--dir b { left: calc(100% + 0.7em); top: 50%; transform: translateY(-50%); }
+.eorb--esq b { right: calc(100% + 0.7em); top: 50%; transform: translateY(-50%); }
 .eorb:hover b span { color: var(--gold); }
 .eorb small { display: none; }
 @keyframes eco-aparece { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
@@ -904,13 +916,12 @@ body.hide-todo .todo { text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.75);
   opacity: 0;
   transition: opacity 0.42s;
 }
-.eco-modal-cena.ver::before { opacity: 1; }
+/* o desfoque só existe com o popup aberto: parado, ele recalcularia a tela inteira a cada quadro */
+.eco-modal-cena.ver::before { opacity: 1; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .eco-modal {
   position: relative;
   width: min(92vw, max(420px, 50vw));
@@ -1078,8 +1089,8 @@ body.chrome-off .topbar { opacity: 0; }
   .homework::before { display: none; }
   .apresente { grid-template-columns: 1fr; }
   .apresente figcaption { justify-content: flex-start; }
-  .eco-grupos { flex-direction: column; font-size: 0.8em; }
-  .eco-fio { width: 1.5px; height: 1.5em; flex: none; }
+  .split--eco { grid-template-columns: 1fr; }
+  .orbit { font-size: 0.8em; }
   .photo-layout--right .photo-layout__content { grid-column: auto; }
   .lives__time { font-size: 4em; }
   .split { gap: 2em; }
