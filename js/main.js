@@ -155,7 +155,7 @@
 
   // ---------- Prints: sem imagem, fica o placeholder ----------
 
-  document.querySelectorAll(".shot__screen img, .avatar img").forEach((img) => {
+  document.querySelectorAll(".shot__screen img, .avatar img, .account__photo img").forEach((img) => {
     const fail = () => img.remove();
     if (img.complete && img.naturalWidth === 0) fail();
     else img.addEventListener("error", fail);
@@ -186,7 +186,7 @@
 
   // ---------- Tarefa de casa ----------
 
-  document.querySelectorAll(".task").forEach((task) => {
+  document.querySelectorAll(".hw").forEach((task) => {
     task.addEventListener("click", () => {
       task.setAttribute("aria-pressed", task.getAttribute("aria-pressed") !== "true");
     });
