@@ -19,7 +19,6 @@
   --gold-soft: rgba(246, 198, 85, 0.1);
   --on-gold: #141414;                     /* --primary-foreground */
   --spotlight: rgba(246, 198, 85, 0.07);  /* --spotlight */
-  --capital: #07130e;                     /* fundo do bloco AUVP Capital */
   --todo: #f59e0b;
 
   /* Tipografia */
@@ -83,23 +82,10 @@ img, video { display: block; max-width: 100%; }
 .narrow { max-width: 44em; }
 .center { text-align: center; }
 
-.theme-capital {
-  background:
-    radial-gradient(ellipse at 85% 0%, var(--spotlight), transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(90, 135, 112, 0.22), transparent 60%),
-    var(--capital);
-}
-
 .slide--cover,
 .slide--divider {
   text-align: center;
   background: radial-gradient(ellipse at 50% 120%, rgba(246, 198, 85, 0.16), transparent 60%), var(--bg);
-}
-.slide--divider.theme-capital {
-  background:
-    radial-gradient(ellipse at 50% 120%, rgba(246, 198, 85, 0.12), transparent 60%),
-    radial-gradient(ellipse at 0% 0%, rgba(90, 135, 112, 0.18), transparent 55%),
-    var(--capital);
 }
 .slide--cover .slide__inner,
 .slide--divider .slide__inner { max-width: 50em; }
@@ -130,7 +116,7 @@ img, video { display: block; max-width: 100%; }
    Tipografia
    ========================================================== */
 h1, h2, .display, .card__title, .card__value, .fact__value, .stat-big,
-.partner__name, .plan__for, .plan__fee, .eco__name,
+.partner__name,
 .qr-card__title, .badge-top1__num {
   font-family: var(--font-display);
 }
@@ -478,14 +464,17 @@ body.hide-todo .todo { text-decoration: none; }
 .sempre__year,
 .sempre__forever { display: flex; flex-direction: column; gap: 0.1em; padding: 1em 1.4em; }
 .sempre__year { background: var(--card); }
-.sempre__forever { background: linear-gradient(90deg, var(--gold-from), var(--gold) 55%, rgba(246, 198, 85, 0.25)); color: var(--on-gold); }
+.sempre__forever { background: linear-gradient(90deg, var(--gold-from), var(--gold) 45%, rgba(246, 198, 85, 0) 100%); color: var(--on-gold); }
+/* sem borda nem fim visível à direita: a faixa some no fundo, como um infinito */
+.sempre__track { -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent 97%); mask-image: linear-gradient(90deg, #000 60%, transparent 97%); }
 .sempre__tag { display: inline-flex; align-items: center; gap: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 800; line-height: 1.1; }
 .sempre__item { padding-left: 1.3em; border-left: 2px solid var(--line); }
 .sempre__item .card__icon { margin-bottom: 0.4em; }
 .sempre__item .muted { font-size: 0.95em; }
 
 /* ---------- Tarefa de casa ---------- */
-.homework { position: relative; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4em; margin-top: 1.6em; }
+.homework { position: relative; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4em; }
+.h2-note { display: block; margin-top: 0.35em; color: var(--muted); font-family: var(--font-body); font-size: 0.38em; font-weight: 400; letter-spacing: 0; }
 .homework::before {
   content: "";
   position: absolute;
@@ -499,10 +488,10 @@ body.hide-todo .todo { text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.6em;
+  gap: 0.45em;
   width: 100%;
   height: 100%;
-  padding: 1.4em 1.6em 1.6em;
+  padding: 1.1em 1.5em 1.3em;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   background: var(--card);
@@ -533,37 +522,15 @@ body.hide-todo .todo { text-decoration: none; }
 .hw__icon { font-size: 1.8em; color: var(--gold); }
 .hw__title { font-family: var(--font-display); font-size: 1.3em; font-weight: 700; line-height: 1.2; }
 .hw__text { color: var(--muted); font-size: 0.95em; }
-.hw__post {
-  display: flex;
-  align-items: center;
-  gap: 0.8em;
-  width: 100%;
-  margin-top: 0.2em;
-  padding: 0.7em 0.9em;
-  border: 1px solid var(--line-soft);
-  border-radius: 10px;
-  background: var(--card-2);
-}
-.hw__post .avatar { width: 2.4em; height: 2.4em; border-width: 1px; }
-.hw__post-text { display: flex; flex-direction: column; line-height: 1.25; }
-.hw__post-text strong { font-family: var(--font-display); }
-.hw__post-text small { color: var(--muted); font-size: 0.8em; }
 .hw[aria-pressed="true"] { border-color: var(--gold); background: linear-gradient(rgba(246, 198, 85, 0.07), rgba(246, 198, 85, 0.07)), var(--card); }
 .hw[aria-pressed="true"] .hw__num { color: var(--gold); }
 .hw[aria-pressed="true"] .hw__check { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
 
-.avatar {
-  position: relative;
-  flex: none;
-  width: 3.2em;
-  height: 3.2em;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--gold);
-  background: var(--card-2);
-}
-.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.avatar__fallback { display: grid; place-items: center; height: 100%; font-family: var(--font-display); font-weight: 800; color: var(--gold); }
+.apresente { display: grid; grid-template-columns: 1fr 1.8fr; gap: 1.4em; align-items: center; margin: 1.1em 0 0; }
+.apresente figcaption { display: flex; align-items: center; justify-content: flex-end; gap: 0.5em; color: var(--gold); font-family: var(--font-display); font-weight: 600; text-align: right; }
+.apresente figcaption .ph { font-size: 1.4em; transform: scaleX(-1); }
+.apresente a { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8); }
+.apresente img { width: 100%; }
 
 /* ---------- AUVP Capital ---------- */
 .photo-bleed--left {
@@ -624,7 +591,7 @@ body.hide-todo .todo { text-decoration: none; }
   padding: 0.35em 0.9em;
   border: 1px solid var(--gold);
   border-radius: 999px;
-  background: var(--capital);
+  background: var(--bg);
   color: var(--gold);
   font-size: 0.7em;
   font-weight: 700;
@@ -777,7 +744,7 @@ body.hide-todo .todo { text-decoration: none; }
 
 /* ---------- Abra sua conta ---------- */
 .account { display: grid; grid-template-columns: 1.7fr 1fr; gap: 1.4em; align-items: stretch; }
-.account__info { display: grid; gap: 0.9em; align-content: start; }
+.account__info { display: grid; gap: 0.7em; align-content: start; }
 .account__callout { margin-top: 0; }
 .grid--2 { grid-template-columns: 1fr 1fr; }
 .account__card { padding: 0.9em 1.2em; }
@@ -828,100 +795,208 @@ body.hide-todo .todo { text-decoration: none; }
 .qr-card__title { margin-top: 1em; font-size: 1.4em; font-weight: 800; }
 .qr-card .small { color: #52525b; }
 
-/* ---------- Ecossistema ---------- */
-.eco { display: grid; grid-template-columns: 1fr 1fr; gap: 3em; align-items: center; }
-.eco__map { position: relative; aspect-ratio: 1; width: 100%; max-width: 22em; justify-self: center; }
-.eco__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.eco__lines circle, .eco__lines line { fill: none; stroke: var(--line); stroke-width: 0.3; }
-.eco__lines .eco__pulse {
-  stroke: var(--gold);
-  stroke-width: 0.5;
-  stroke-dasharray: 6 18;
-  animation: orbit 14s linear infinite;
-  transform-origin: 50% 50%;
+/* ---------- Ecossistema em órbitas (reproduzido do site-vendas) ---------- */
+/* Um núcleo e duas frentes: o olho no meio, ligado por um fio a cada
+   frente; cada frente é um disco com os produtos em volta, como
+   satélites. O ângulo de cada satélite vem inline (--a) e o raio do CSS. */
+.eco-wrap { display: flex; flex-direction: column; align-items: center; }
+.eco-topo { text-align: center; }
+.eco-topo h2 { margin-inline: auto; margin-bottom: 0.2em; }
+.eco-grupos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --sat: 3.4em;
+  --disco: 6.4em;
+  --olho: 4.6em;
+  --rotulo: 1.8em;
 }
-@keyframes orbit { to { transform: rotate(360deg); } }
-
-.eco__center {
+.eco-frente {
+  position: relative;
+  flex: none;
+  --raio: calc((var(--disco) / 2 + var(--sat) / 2 + 1.3em) * var(--fator, 1));
+  width: calc(2 * var(--raio) + var(--sat) + 2 * var(--rotulo));
+  height: calc(2 * var(--raio) + var(--sat) + 2 * var(--rotulo));
+}
+.eco-fio { flex: 0 1 2.6em; min-width: 1.2em; height: 1.5px; background: linear-gradient(90deg, rgba(246, 198, 85, 0), rgba(246, 198, 85, 0.9)); }
+.eco-olho + .eco-fio { background: linear-gradient(90deg, rgba(246, 198, 85, 0.9), rgba(246, 198, 85, 0)); }
+.eco-olho {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--olho);
+  height: var(--olho);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 198, 85, 0.16) 0%, transparent 72%);
+}
+.eco-olho img { width: 82%; }
+.eco-disco {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 34%;
-  aspect-ratio: 1;
+  z-index: 2;
   transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  padding: 1em;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  background: var(--bg);
-  box-shadow: 0 0 60px rgba(246, 198, 85, 0.18);
+  width: max-content;
+  text-align: center;
+  pointer-events: none;
 }
-.eco__node {
+.eco-disco b { display: block; font-family: var(--font-display); font-size: 1.15em; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+
+/* Cada produto é um satélite na borda do disco: o ângulo posiciona e o
+   giro contrário devolve o card à horizontal */
+.eorb {
   position: absolute;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25em;
-  min-width: 5.8em;
-  padding: 0.6em 0.8em;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: var(--sat);
+  height: var(--sat);
+  margin: calc(var(--sat) / -2);
+  padding: 0;
+  transform: rotate(var(--a)) translate(var(--raio)) rotate(calc(-1 * var(--a)));
+}
+.eorb-in { display: block; width: 100%; height: 100%; animation: eco-aparece 0.4s ease backwards; animation-delay: calc(var(--j, 0) * 45ms + 160ms); }
+.eorb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 8px 18px -8px rgba(246, 198, 85, 0.5);
+  transition: transform 0.22s var(--ease), box-shadow 0.22s;
+}
+.eorb:hover .eorb-img { transform: scale(1.08); box-shadow: 0 12px 24px -8px rgba(246, 198, 85, 0.8); }
+/* Fio de cada satélite até a frente: nasce na borda do card e some antes do nome */
+.eorb::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: max(0px, calc(var(--raio) - var(--disco) / 2 - var(--sat) / 2));
+  height: 1.5px;
+  transform-origin: 0 50%;
+  transform: rotate(calc(var(--a) + 180deg)) translateX(calc(var(--sat) / 2));
+  background: linear-gradient(90deg, rgba(246, 198, 85, 0.85) 0%, rgba(246, 198, 85, 0.5) 42%, rgba(246, 198, 85, 0) 100%);
+  pointer-events: none;
+}
+/* O nome sobe nos satélites de cima e desce nos de baixo */
+.eorb b {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.35em);
+  transform: translateX(-50%);
+  width: calc(var(--sat) + 3.8em);
+  text-align: center;
+  line-height: 1.15;
+}
+.eorb b span { font-family: var(--font-display); font-size: 0.72em; font-weight: 600; transition: color 0.2s; }
+.eorb.cima b { top: auto; bottom: calc(100% + 0.35em); }
+.eorb:hover b span { color: var(--gold); }
+.eorb small { display: none; }
+@keyframes eco-aparece { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+
+/* Popup do item: cresce a partir do card clicado, com a foto grande e o texto por cima */
+.eco-modal-cena { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; pointer-events: none; }
+.eco-modal-cena.ver { pointer-events: auto; }
+.eco-modal-cena::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.42s;
+}
+.eco-modal-cena.ver::before { opacity: 1; }
+.eco-modal {
+  position: relative;
+  width: min(92vw, max(420px, 50vw));
+  max-height: 86vh;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.9em;
-  transition: all var(--dur) ease;
+  box-shadow: 0 40px 80px -28px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0s 0.5s, visibility 0s 0.5s;
 }
-.eco__node .ph { font-size: 1.5em; color: var(--gold); }
-.eco__node:hover { border-color: var(--gold); }
-.eco__node.is-known { opacity: 0.55; }
-.eco__node[aria-selected="true"] {
-  opacity: 1;
-  border-color: var(--gold);
-  background: var(--gold);
-  color: var(--on-gold);
-  transform: translate(-50%, -50%) scale(1.1);
+.eco-modal-cena.ver .eco-modal { opacity: 1; visibility: visible; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0s, visibility 0s; }
+.eco-modal-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--card); }
+.eco-modal-corpo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4em 1.6em 1.2em;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 34%, rgba(0, 0, 0, 0.45) 68%, transparent 100%);
 }
-.eco__node[aria-selected="true"] .ph { color: var(--on-gold); }
-.eco__detail > div { animation: fade-in 0.4s var(--ease); }
-.eco__detail .label { color: var(--gold); }
-.eco__name { font-size: 2.8em; font-weight: 800; line-height: 1.05; margin-bottom: 0.35em; }
-.eco__detail p:last-child { font-size: 1.25em; color: var(--muted); }
+.eco-modal-corpo b { display: block; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 700; line-height: 1.12; }
+.eco-modal-corpo p { color: rgba(255, 255, 255, 0.82); max-width: 62ch; }
+.eco-modal-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  font-size: 16px;
+}
+.eco-modal-x:hover { background: rgba(0, 0, 0, 0.8); }
 
-/* ---------- Próximos passos e avisos ---------- */
-.notices { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
-.notice {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6em;
-  padding: 1.8em 1.6em;
-  border: 1px solid var(--line-soft);
-  border-top: 3px solid var(--gold);
-  border-radius: var(--radius);
-  background: var(--card);
-  text-align: center;
+/* ---------- Próximos passos e avisos: rota vertical ---------- */
+.split--notices { grid-template-columns: 1fr 1.35fr; }
+.route { position: relative; list-style: none; display: grid; gap: 1.5em; }
+.route::before {
+  content: "";
+  position: absolute;
+  top: 1.4em;
+  bottom: 1.4em;
+  left: 1.4em;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), rgba(246, 198, 85, 0.15));
 }
-.notice__icon {
+.route__step { position: relative; display: flex; gap: 1.3em; align-items: flex-start; }
+.route__dot {
+  position: relative;
+  flex: none;
   display: grid;
   place-items: center;
   width: 2.8em;
   height: 2.8em;
-  margin-bottom: 0.3em;
+  border: 1px solid var(--gold);
   border-radius: 50%;
-  background: var(--gold-soft);
+  background: var(--bg);
   color: var(--gold);
-  font-size: 1.4em;
+  font-size: 1em;
+  box-shadow: 0 0 0 6px var(--bg);
 }
-.notice__title { font-family: var(--font-display); font-size: 1.3em; font-weight: 700; }
-.notice__title span { color: var(--gold); }
-.notice .muted { font-size: 0.95em; }
-.notice .muted strong { color: var(--ink); }
-.notice__highlight { width: 100%; padding-top: 0.7em; border-top: 1px solid var(--line-soft); font-size: 0.95em; }
+.route__dot .ph, .route__dot .ph-fill { font-size: 1.25em; }
+.route__title { margin-bottom: 0.2em; font-family: var(--font-display); font-size: 1.35em; font-weight: 700; line-height: 1.2; }
+.route__step .muted { font-size: 0.95em; }
+.route__step .muted strong { color: var(--ink); }
+.route__tag {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  margin-top: 0.6em;
+  padding: 0.45em 0.8em;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--gold-soft);
+  font-size: 0.88em;
+  line-height: 1.35;
+}
+.route__tag .ph, .route__tag .ph-fill { flex: none; margin-top: 0.1em; color: var(--gold); }
 
 /* ==========================================================
    Chrome: topo, progresso e controles
@@ -1001,6 +1076,10 @@ body.chrome-off .topbar { opacity: 0; }
   .plan__fee { border-left: 0; border-top: 1px solid var(--line-soft); }
   .seg { display: flex; flex-wrap: wrap; border-radius: var(--radius); }
   .homework::before { display: none; }
+  .apresente { grid-template-columns: 1fr; }
+  .apresente figcaption { justify-content: flex-start; }
+  .eco-grupos { flex-direction: column; font-size: 0.8em; }
+  .eco-fio { width: 1.5px; height: 1.5em; flex: none; }
   .photo-layout--right .photo-layout__content { grid-column: auto; }
   .lives__time { font-size: 4em; }
   .split { gap: 2em; }
