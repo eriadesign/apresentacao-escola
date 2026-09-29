@@ -186,7 +186,7 @@
 
   // ---------- Tarefa de casa ----------
 
-  document.querySelectorAll(".task").forEach((task) => {
+  document.querySelectorAll(".hw").forEach((task) => {
     task.addEventListener("click", () => {
       task.setAttribute("aria-pressed", task.getAttribute("aria-pressed") !== "true");
     });
