@@ -46,11 +46,13 @@ Trechos com **sublinhado tracejado laranja** (`class="todo"`) ainda precisam ser
 
 ### Imagens
 
-Os prints das ferramentas, a foto de "Antes de começar" e o vídeo da Minha AUVP vêm do CDN da AUVP (`cdn.asupernova.com.br`), direto no `index.html`.
+A maioria dos prints e fotos vem do CDN da AUVP (`cdn.asupernova.com.br`), direto no `index.html`. Algumas ficam em `assets/img/`:
 
-A foto da sede (`assets/img/sede.jpg`) é uma cópia otimizada de 2400 px da original do CDN, que tem 39 MB.
-
-Ainda falta a foto da comunidade no slide "Abra sua conta": salve como `assets/img/abra-sua-conta.jpg` (enquanto não existe, aparece um espaço reservado).
+| Arquivo | Por quê |
+| --- | --- |
+| `financas.png`, `comunidade.png` | Prints com o nome e a foto da conta trocados por "membro AUVP" |
+| `sede.jpg` | Cópia de 2400 px da foto da sede (a original tem 39 MB) |
+| `abra-sua-conta.jpg` | Cópia de 1600 px da foto do evento (a original é um PNG de 3,9 MB) |
 
 O ecossistema (`js/ecossistema.js`) mostra os serviços da AUVP em órbita em volta do olho, baseado na visualização do [site-vendas](https://eriadesign.github.io/site-vendas/) e usando as imagens publicadas nele.
 
