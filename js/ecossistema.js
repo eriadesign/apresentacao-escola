@@ -6,7 +6,7 @@
   const BASE = "https://eriadesign.github.io/site-vendas/";
 
   const ITENS = [
-    { t: "Consultoria", d: "Nº 1 no ranking do BTG Pactual, pelo segundo ano seguido.", img: "https://www.maisnovela.com.br/wp-content/uploads/2026/03/AUVP.png", alt: "comunidade pro.png" },
+    { t: "Consultoria", d: "Nº 1 no ranking do BTG Pactual, pelo segundo ano seguido.", img: "assets/img/abra-sua-conta.jpg", alt: "comunidade pro.png" },
     { t: "Conta com cartão próprio", d: "Conta, cartão e atendimento 100% AUVP, sujeito à análise de crédito.", img: "https://pbs.twimg.com/media/GxSRuKfXMAAQPsS.jpg", alt: "capa modulo 3.jpg" },
     { t: "Crédito", d: "Comparação com mais de 20 bancos, sem liquidar seus investimentos.", img: "https://cdn.asupernova.com.br/lp-auvp/vite/onde sua vida financeira se resolve mobile.webp", alt: "simulados pro.png" },
     { t: "Câmbio", d: "Enviar, receber ou investir no exterior com custo transparente.", img: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/04/servico-de-cambio.png", alt: "cripto.jpg" },
@@ -18,7 +18,8 @@
   const orbita = document.getElementById("eco-orbit");
   if (!orbita) return;
 
-  const url = (src) => encodeURI(/^https?:/.test(src) ? src : BASE + src);
+  // "assets/" é deste projeto; o resto do site-vendas
+  const url = (src) => encodeURI(/^(https?:|assets/)/.test(src) ? src : BASE + src);
   const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
   // O nome fica sempre do lado de fora da órbita: em cima, embaixo ou ao lado

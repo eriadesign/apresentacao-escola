@@ -8,6 +8,6 @@ window.AUVP_LINKS = {
   minhasFinancas: "https://financas.auvp.com.br/dashboard/home",
   diagramaCerrado: "https://ferramentas.auvp.com.br/home",
   analitica: "https://analitica.auvp.com.br/",
-  apresenteSe: "",   // post "Apresente-se" do Raul na comunidade
+  apresenteSe: "https://comunidade.auvp.com.br/topic/8-apresente-se/",   // post "Apresente-se" do Raul na comunidade
   avaliacao: "",     // formulário de avaliação (vira QR code no slide de dúvidas)
 };
