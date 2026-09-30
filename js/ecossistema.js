@@ -19,7 +19,7 @@
   if (!orbita) return;
 
   // "assets/" é deste projeto; o resto do site-vendas
-  const url = (src) => encodeURI(/^(https?:|assets/)/.test(src) ? src : BASE + src);
+  const url = (src) => encodeURI(/^(https?:|assets\/)/.test(src) ? src : BASE + src);
   const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
   // O nome fica sempre do lado de fora da órbita: em cima, embaixo ou ao lado
