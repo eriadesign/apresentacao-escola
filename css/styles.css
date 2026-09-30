@@ -307,21 +307,14 @@ body.hide-todo .todo { text-decoration: none; }
 }
 .photo-layout__content { max-width: 30em; }
 
-.facts { list-style: none; display: grid; gap: 1.4em; }
-.fact { display: flex; gap: 1.1em; align-items: flex-start; }
-.fact__icon {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 2.6em;
-  height: 2.6em;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--gold-soft);
-  color: var(--gold);
-  font-size: 1.2em;
-}
-.fact__value { font-size: 2.1em; font-weight: 800; line-height: 1; color: var(--gold); margin-bottom: 0.2em; }
+/* cada informação num bloco próprio, separado por linhas */
+.photo-layout__content h2 { margin-bottom: 0.8em; }
+.facts { list-style: none; display: grid; }
+.fact { padding: 1.3em 0; border-top: 1px solid var(--line-soft); }
+.fact:last-child { border-bottom: 1px solid var(--line-soft); }
+.fact .label { color: var(--gold); margin-bottom: 0.5em; }
+.fact .label .ph { font-size: 1.4em; }
+.fact__value { font-size: 2.2em; font-weight: 800; line-height: 1; margin-bottom: 0.3em; }
 
 
 /* ---------- Print/vídeo em moldura de navegador ---------- */
@@ -541,7 +534,7 @@ body.hide-todo .todo { text-decoration: none; }
 }
 .apresente__label .ph { margin-left: auto; color: var(--gold); font-size: 1.2em; }
 .apresente__step { color: var(--gold); font-family: var(--font-body); font-size: 0.72em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.apresente img { width: 100%; aspect-ratio: 1460 / 220; object-fit: cover; object-position: top; }
+.apresente img { width: 100%; height: 8.6em; object-fit: cover; object-position: top left; }
 
 /* ---------- AUVP Capital ---------- */
 .photo-bleed--left {
@@ -575,7 +568,7 @@ body.hide-todo .todo { text-decoration: none; }
 
 .badge-top1--inline { flex-direction: row; align-items: center; gap: 1em; width: 100%; padding: 1em 1.5em; }
 .badge-top1--inline .ph-fill { margin: 0; font-size: 1.8em; }
-.badge-top1--inline .badge-top1__num { font-size: 2.2em; margin: 0; }
+.badge-top1--inline .badge-top1__num { flex: none; font-size: 2.2em; margin: 0; white-space: nowrap; }
 .badge-top1--inline .badge-top1__text { font-size: 0.95em; }
 
 /* ---------- Parceria BTG + vantagens ---------- */
