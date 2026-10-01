@@ -183,5 +183,32 @@
     });
   });
 
+  // ---------- Sem viúvas ----------
+  // Une as duas últimas palavras de cada título e parágrafo com um espaço
+  // inquebrável, para a última linha nunca ficar com uma palavra sozinha.
+  const NBSP = " ";
+
+  function semViuva(el) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const textos = [];
+    while (walker.nextNode()) textos.push(walker.currentNode);
+    let achouPalavra = false;
+    for (let i = textos.length - 1; i >= 0; i--) {
+      const node = textos[i];
+      const s = node.nodeValue;
+      for (let j = s.length - 1; j >= 0; j--) {
+        if (s[j] === NBSP) return; // já protegido
+        if (!/\s/.test(s[j])) { achouPalavra = true; continue; }
+        if (achouPalavra) {
+          // troca o espaço antes da última palavra por um espaço inquebrável
+          node.nodeValue = s.slice(0, j) + NBSP + s.slice(j + 1).replace(/^\s+/, "");
+          return;
+        }
+      }
+    }
+  }
+  window.semViuva = semViuva;
+  document.querySelectorAll("h1, h2, p, .hw__title, .hw__text").forEach(semViuva);
+
   goTo(readHash());
 })();

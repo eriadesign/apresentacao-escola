@@ -72,6 +72,7 @@
     mImg.src = img.src;
     mTit.textContent = btn.querySelector("b").textContent;
     mDesc.textContent = btn.querySelector("small").textContent;
+    if (window.semViuva) window.semViuva(mDesc);
     origem = btn;
     cena.classList.add("ver");
     cena.setAttribute("aria-hidden", "false");
