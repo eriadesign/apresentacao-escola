@@ -29,14 +29,14 @@ O slide atual fica na URL (`#12`), então dá para abrir direto num slide.
 3. **Bloco 1 · Acesso e cadastro:** Minha AUVP
 4. **Bloco 2 · Aulas, comunidade e ferramentas:** plataforma de aulas, comunidade, Minhas Finanças, Diagrama do Cerrado e Analítica; encontros ao vivo; AUVP Sempre; tarefa de casa
 5. **Bloco 3 · Ecossistema e serviços:** AUVP Capital, parceria BTG, vantagens, fee-based, planos, abertura de conta, ecossistema
-6. **Bloco 4 · Avisos e próximos passos:** lembretes, dúvidas + QR code de avaliação, agradecimento
+6. **Bloco 4 · Avisos e próximos passos:** lembretes, dúvidas + avaliação (link fixado no chat), agradecimento
 
 ## Como editar
 
 | O quê | Onde |
 | --- | --- |
 | Textos | `index.html` (cada slide é um `<section class="slide">`) |
-| Links e QR codes | `js/config.js` |
+| Links | `js/config.js` |
 | Prints das ferramentas e foto do Raul | `assets/img/` (nomes abaixo) |
 | Cores e fontes | variáveis no topo de `css/styles.css` |
 

@@ -1,6 +1,6 @@
 // Links usados na apresentação.
 // Preencha cada um com a URL completa (ex.: "https://...").
-// Enquanto estiver vazio, o botão aparece como "link pendente" e o QR code não é gerado.
+// Enquanto estiver vazio, o botão aparece como "link pendente".
 window.AUVP_LINKS = {
   minhaAuvp: "https://minha.auvp.com.br/",
   aulas: "https://www.aulasauvp.com.br/start",
@@ -9,5 +9,4 @@ window.AUVP_LINKS = {
   diagramaCerrado: "https://ferramentas.auvp.com.br/home",
   analitica: "https://analitica.auvp.com.br/",
   apresenteSe: "https://comunidade.auvp.com.br/topic/8-apresente-se/",   // post "Apresente-se" do Raul na comunidade
-  avaliacao: "",     // formulário de avaliação (vira QR code no slide de dúvidas)
 };

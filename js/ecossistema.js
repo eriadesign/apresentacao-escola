@@ -12,7 +12,6 @@
     { t: "Câmbio", d: "Enviar, receber ou investir no exterior com custo transparente.", img: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/04/servico-de-cambio.png", alt: "cripto.jpg" },
     { t: "Seguros", d: "Cotação em até 6 seguradoras, sem viés de interesse.", img: "https://images.pexels.com/photos/20880348/pexels-photo-20880348.jpeg", alt: "thumb INDICADORES.jpg" },
     { t: "Wealth", d: "Blindagem patrimonial, governança e planejamento sucessório.", img: "https://oespecialista.safra.com.br/wp-content/uploads/2026/05/wealth-management-nos-investimentos.jpg", alt: "analitica.jpg" },
-    { t: "ETF's próprios", d: "AUVP11, AUPO11, AREA11 e ABTC11, geridos e baseados em metodologias próprias da AUVP.", img: "https://cdn.asupernova.com.br/lp-auvp/vite/AUVP-0509.webp", alt: "cotações.png" },
   ];
 
   const orbita = document.getElementById("eco-orbit");

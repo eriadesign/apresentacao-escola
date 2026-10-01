@@ -136,23 +136,6 @@
     }
   });
 
-  // ---------- QR codes ----------
-
-  document.querySelectorAll("[data-qr]").forEach((el) => {
-    const url = LINKS[el.dataset.qr];
-    if (!url || typeof qrcode !== "function") {
-      el.classList.add("is-pending");
-      el.textContent = url
-        ? "Não foi possível gerar o QR code (sem internet?)"
-        : `QR code aparece aqui quando "${el.dataset.qr}" for preenchido em js/config.js`;
-      return;
-    }
-    const qr = qrcode(0, "M");
-    qr.addData(url);
-    qr.make();
-    el.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
-  });
-
   // ---------- Prints: sem imagem, fica o placeholder ----------
 
   document.querySelectorAll(".shot__screen img, .account__photo img").forEach((img) => {
