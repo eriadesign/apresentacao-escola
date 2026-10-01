@@ -131,7 +131,10 @@ h1, h2, .display, .card__title, .card__value, .fact__value, .stat-big,
 .eyebrow { color: var(--gold); margin-bottom: 0.9em; }
 .label { color: var(--muted); margin-bottom: 0.7em; display: flex; align-items: center; gap: 0.4em; }
 
-h1, h2 { font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; }
+h1, h2 { font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; text-wrap: balance; }
+/* sem viúvas: a última linha nunca fica com uma palavra só (o JS garante nos navegadores antigos) */
+p, li, .hw__title, .hw__text { text-wrap: pretty; }
+.nowrap { white-space: nowrap; }
 h2 { font-size: 2.7em; margin-bottom: 0.65em; max-width: 22em; }
 .center h2 { margin-inline: auto; }
 
@@ -310,8 +313,7 @@ body.hide-todo .todo { text-decoration: none; }
 /* cada informação num bloco próprio, separado por linhas */
 .photo-layout__content h2 { margin-bottom: 0.8em; }
 .facts { list-style: none; display: grid; }
-.fact { padding: 1.3em 0; border-top: 1px solid var(--line-soft); }
-.fact:last-child { border-bottom: 1px solid var(--line-soft); }
+.fact { padding: 1em 0; }
 .fact .label { color: var(--gold); margin-bottom: 0.5em; }
 .fact .label .ph { font-size: 1.4em; }
 .fact__value { font-size: 2.2em; font-weight: 800; line-height: 1; margin-bottom: 0.3em; }
@@ -443,8 +445,7 @@ body.hide-todo .todo { text-decoration: none; }
 .lives__day { font-family: var(--font-display); font-size: 1.5em; font-weight: 600; }
 .lives__time { font-family: var(--font-display); font-size: 6em; font-weight: 800; line-height: 0.9; color: var(--gold); margin-bottom: 0.2em; }
 .lives__extras { list-style: none; display: grid; align-content: center; }
-.lives__extras li { display: flex; gap: 1.2em; align-items: flex-start; padding: 1.4em 0; border-top: 1px solid var(--line-soft); }
-.lives__extras li:last-child { border-bottom: 1px solid var(--line-soft); }
+.lives__extras li { display: flex; gap: 1.2em; align-items: flex-start; padding: 1.2em 0; }
 .lives__extras .feature__icon { flex: none; }
 
 /* ---------- AUVP Sempre ---------- */
@@ -612,7 +613,7 @@ body.hide-todo .todo { text-decoration: none; }
   transition: all 0.6s var(--ease);
 }
 .perk__icon { flex: none; font-size: 1.6em; color: var(--gold); transition: color 0.6s; }
-.perk > div { flex: 1; }
+.perk .perk__title { flex: 1; }
 .perk__title { font-family: var(--font-display); font-size: 1.1em; font-weight: 700; line-height: 1.2; }
 .perk .muted { font-size: 0.92em; }
 .perk__lock { flex: none; font-size: 1.2em; color: var(--muted); }
