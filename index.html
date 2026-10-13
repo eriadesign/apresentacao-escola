@@ -307,30 +307,29 @@
         <h2>AUVP Capital <span class="gold">+</span> BTG Pactual</h2>
         <div class="conta">
           <div class="conta__how">
-            <div class="layers">
-              <div class="layer layer--top">
-                <span class="layer__tag">Quem cuida de você</span>
-                <p class="layer__name">AUVP Capital</p>
-                <p class="muted">Cuida da sua estratégia, do atendimento e das suas vantagens de membro.</p>
+            <!-- a conta e o dinheiro ficam na AUVP Capital; o BTG é a infraestrutura por baixo -->
+            <div class="infra">
+              <div class="infra__main">
+                <span class="infra__tag">Onde a sua conta fica</span>
+                <p class="infra__name">AUVP Capital</p>
+                <ul class="infra__items">
+                  <li><i class="ph ph-wallet"></i>Sua conta</li>
+                  <li><i class="ph ph-chart-line-up"></i>Seus investimentos</li>
+                  <li><i class="ph ph-headset"></i>Seu atendimento</li>
+                </ul>
               </div>
-              <div class="layer layer--base">
-                <span class="layer__tag">Onde o seu dinheiro fica</span>
-                <p class="layer__name">BTG Pactual</p>
-                <p class="muted">Onde sua conta é aberta e seus investimentos ficam guardados.</p>
+              <div class="infra__base">
+                <i class="ph ph-plugs-connected"></i>
+                <p><span class="infra__tag">Parceiro de infraestrutura</span><strong>BTG Pactual</strong>, a plataforma e a tecnologia por trás da sua conta</p>
               </div>
             </div>
-            <p class="conta__note">Você abre sua conta no BTG <strong>pela AUVP Capital</strong> e fica com o melhor dos dois: a solidez de um grande banco e a metodologia AUVP.</p>
+            <p class="conta__note">Você abre sua conta <strong>na AUVP Capital</strong> e fica com o melhor dos dois: a metodologia AUVP com a infraestrutura de um grande banco parceiro.</p>
           </div>
 
           <div class="conta__perks perks fragment" data-fragment="state">
             <p class="conta__perks-title">Abriu a conta, <span class="gold">desbloqueou</span></p>
             <p class="muted conta__perks-lead">Ao abrir sua conta, você desbloqueia:</p>
             <ul class="perk-list">
-              <li class="perk">
-                <i class="perk__icon ph ph-credit-card"></i>
-                <p class="perk__title">Cartão</p>
-                <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
-              </li>
               <li class="perk">
                 <i class="perk__icon ph ph-chart-pie-slice"></i>
                 <p class="perk__title">Carteiras recomendadas</p>
@@ -354,28 +353,12 @@
       <div class="slide__inner">
         <p class="eyebrow">Como cobramos</p>
         <h2>Do mesmo lado da mesa <span class="gold">que você</span></h2>
-        <div class="fee">
-          <div class="fee__intro">
-            <p class="fee__lead">Para a AUVP Capital funcionar do jeito certo, a gente precisava garantir que o nosso time estivesse exatamente do mesmo lado da mesa que vocês. É por isso que nós adotamos o modelo <strong class="gold">fee-based</strong>.</p>
-            <div class="mesa" aria-hidden="true">
-              <div class="mesa__side">
-                <span class="mesa__seat mesa__seat--off"><i class="ph ph-coins"></i>Comissões</span>
-              </div>
-              <div class="mesa__table"></div>
-              <div class="mesa__side">
-                <span class="mesa__seat"><i class="ph ph-user"></i>Você</span>
-                <span class="mesa__seat mesa__seat--gold"><i class="ph ph-handshake"></i>AUVP Capital</span>
-              </div>
-            </div>
-            <p class="fee__close fragment">Dessa forma, o nosso único foco é <strong>proteger e fazer o seu patrimônio crescer</strong> ao longo do tempo.</p>
-          </div>
-          <ol class="fee__points">
-            <li class="fragment"><span class="fee__num">01</span><p><strong>Sem comissão.</strong> Diferente do mercado tradicional, a gente não ganha comissão pelos produtos que você compra.</p></li>
-            <li class="fragment"><span class="fee__num">02</span><p><strong>Taxa fixa e transparente.</strong> Nós cobramos um percentual fixo e totalmente transparente sobre o seu patrimônio investido.</p></li>
-            <li class="fragment"><span class="fee__num">03</span><p><strong>Independência total.</strong> O seu consultor não ganha um centavo a mais por te indicar um ativo específico.</p></li>
-            <li class="fragment"><span class="fee__num">04</span><p><strong>Sem entrelinhas.</strong> O custo do serviço fica 100% separado do custo dos ativos.</p></li>
-          </ol>
-        </div>
+        <p class="fee__lead"><strong class="gold">Alinhamento total de interesses.</strong> Trabalhamos com o modelo fee-based: sem comissão, sem rebate e sem meta de produto. Dessa forma, o nosso único objetivo é proteger e rentabilizar o seu patrimônio ao longo do tempo.</p>
+        <ol class="fee__points">
+          <li class="fragment"><span class="fee__num">01</span><p class="fee__title">Sem comissão</p><p class="muted">Diferente do mercado tradicional, a gente não ganha comissão pelos produtos que você compra.</p></li>
+          <li class="fragment"><span class="fee__num">02</span><p class="fee__title">Sem entrelinhas</p><p class="muted">O custo do serviço fica 100% separado do custo dos ativos.</p></li>
+          <li class="fragment"><span class="fee__num">03</span><p class="fee__title">Taxa fixa e transparente</p><p class="muted">Nós cobramos um percentual fixo e totalmente transparente sobre o seu patrimônio investido.</p></li>
+        </ol>
       </div>
     </section>
 
@@ -384,7 +367,6 @@
       <div class="slide__inner">
         <p class="eyebrow">Três opções</p>
         <h2>Modelos de contratação</h2>
-        <p class="plans__intro muted">A AUVP entende que cada pessoa investe de um jeito. Por isso, oferece diferentes planos, que combinam com o momento de cada investidor: são três opções com <strong>taxas justas, benefícios reais e zero conflito de interesses</strong>.</p>
 
         <div class="plans" data-tabs>
           <div class="seg" role="tablist">
@@ -397,6 +379,10 @@
             <div class="plan__body">
               <p class="label">Plano "Se Vira Aí" · Autoatendimento</p>
               <p class="plan__desc">O membro investe com autonomia total, usando a plataforma e usufruindo dos benefícios de ser membro da AUVP Capital.</p>
+              <ul class="plan__list">
+                <li><i class="ph ph-check"></i>Kinvo Premium por até 12 meses, conforme disponibilidade e elegibilidade</li>
+                <li><i class="ph ph-check"></i>Relatório semanal com notícias e análise do cenário macroeconômico</li>
+              </ul>
               <p class="plan__level"><span class="meter"><i class="is-on"></i><i></i><i></i></span>Acompanhamento</p>
             </div>
             <div class="plan__fee">
@@ -410,6 +396,11 @@
             <div class="plan__body">
               <p class="label">Plano "Me Diz O Que Fazer" · Básico</p>
               <p class="plan__desc">Orientação em investimentos para quem quer definir a direção na hora de montar ou ajustar a carteira.</p>
+              <ul class="plan__list">
+                <li><i class="ph ph-check"></i>Direcionamento para seus investimentos, sob demanda</li>
+                <li><i class="ph ph-check"></i>Relatórios semanais com os melhores investimentos em renda fixa</li>
+                <li><i class="ph ph-check"></i>Relatórios mensais de análises do cenário macroeconômico</li>
+              </ul>
               <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i></i></span>Acompanhamento</p>
             </div>
             <div class="plan__fee">
@@ -423,6 +414,11 @@
             <div class="plan__body">
               <p class="label">Plano "Resolve Aí" · Consultoria completa</p>
               <p class="plan__desc">Um serviço de consultoria completa, com acompanhamento ativo, personalização e responsabilidade técnica sobre o patrimônio orientado.</p>
+              <ul class="plan__list">
+                <li><i class="ph ph-check"></i>Reuniões bimestrais de alinhamento</li>
+                <li><i class="ph ph-check"></i>Consultor dedicado via WhatsApp</li>
+                <li><i class="ph ph-check"></i>Estratégia de alocação 100% personalizada</li>
+              </ul>
               <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span>Acompanhamento</p>
             </div>
             <div class="plan__fee">

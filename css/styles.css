@@ -592,26 +592,45 @@ body.hide-todo .todo { text-decoration: none; }
 /* ---------- Parceria BTG + vantagens ---------- */
 .conta { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6em; align-items: start; }
 
-/* camadas: a AUVP Capital por cima, o BTG Pactual como base */
-.layers { display: grid; }
-.layer { position: relative; padding: 1em 1.5em; border-radius: var(--radius); }
-.layer--top {
-  z-index: 2;
-  margin-right: 2em;
+/* a conta e o dinheiro ficam na AUVP Capital; o BTG Pactual é a base de infraestrutura */
+.infra { display: grid; }
+.infra__main {
+  padding: 1.3em 1.5em 1.4em;
   border: 1px solid var(--gold);
+  border-bottom: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
   background: linear-gradient(rgba(246, 198, 85, 0.1), rgba(246, 198, 85, 0.1)), var(--card);
-  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.9);
 }
-.layer--base {
-  margin: -1em 0 0 2em;
-  padding-top: 2em;
+.infra__tag { display: block; color: var(--muted); font-size: 0.72em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.infra__main .infra__tag { color: var(--gold); }
+.infra__name { margin: 0.1em 0 0.6em; font-family: var(--font-display); font-size: 1.9em; font-weight: 800; line-height: 1.1; color: var(--gold); }
+.infra__items { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5em; }
+.infra__items li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.35em 0.85em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0.9em;
+}
+.infra__items .ph { color: var(--gold); font-size: 1.15em; }
+.infra__base {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: 0.9em 1.5em;
   border: 1px solid var(--line-soft);
+  border-top: 1px dashed var(--line);
+  border-radius: 0 0 var(--radius) var(--radius);
   background: var(--card-2);
+  color: var(--muted);
+  font-size: 0.95em;
 }
-.layer__tag { color: var(--muted); font-size: 0.72em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.layer--top .layer__tag { color: var(--gold); }
-.layer__name { margin: 0.1em 0 0.2em; font-family: var(--font-display); font-size: 1.6em; font-weight: 800; line-height: 1.1; }
-.layer--top .layer__name { color: var(--gold); }
+.infra__base > .ph { flex: none; font-size: 1.6em; color: var(--muted); }
+.infra__base strong { color: var(--ink); }
+.infra__base .infra__tag { margin-bottom: 0.15em; }
 .conta__note { margin-top: 1.1em; padding-left: 1em; border-left: 3px solid var(--gold); }
 .conta__note strong { color: var(--gold); }
 
@@ -658,51 +677,20 @@ body.hide-todo .todo { text-decoration: none; }
 .perks.is-visible .perks__btn { opacity: 0; pointer-events: none; }
 
 /* ---------- Fee-based ---------- */
-.fee { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3em; align-items: start; }
-.fee__lead { font-size: 1.05em; line-height: 1.45; margin-bottom: 1.1em; }
-.mesa {
-  display: grid;
-  gap: 0.7em;
-  padding: 1.1em 1.2em;
-  margin-bottom: 1.3em;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
-  background: rgba(0, 0, 0, 0.6);
-}
-.mesa__side { display: flex; justify-content: center; gap: 1em; }
-.mesa__table { height: 0.8em; border-radius: 999px; background: linear-gradient(90deg, var(--gold-to), var(--gold-from), var(--gold-to)); }
-.mesa__seat {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.45em 1em;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.9em;
-}
-.mesa__seat .ph { font-size: 1.2em; }
-.mesa__seat--off { border-style: dashed; color: #777; text-decoration: line-through; }
-.mesa__seat--gold { border-color: var(--gold); color: var(--gold); }
-.fee__close { padding-left: 1em; border-left: 3px solid var(--gold); font-size: 1.05em; }
-.fee__points { list-style: none; display: grid; gap: 0.55em; }
+.fee__lead { max-width: 46em; margin: -0.2em 0 1.8em; font-size: 1.15em; line-height: 1.5; }
+.fee__points { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
 .fee__points li {
-  display: flex;
-  gap: 1em;
-  align-items: flex-start;
-  padding: 0.65em 1.1em;
+  padding: 1.4em 1.5em 1.5em;
   border: 1px solid var(--line-soft);
+  border-top: 3px solid var(--gold);
   border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.6);
 }
-.fee__num { flex: none; margin-top: 0.3em; color: var(--gold); font-size: 0.75em; font-weight: 700; letter-spacing: 0.1em; }
-.fee__points p { color: var(--muted); font-size: 0.9em; line-height: 1.38; }
-.fee__points strong { color: var(--ink); }
+.fee__num { display: block; margin-bottom: 0.8em; color: var(--gold); font-size: 0.75em; font-weight: 700; letter-spacing: 0.1em; }
+.fee__title { margin-bottom: 0.35em; font-family: var(--font-display); font-size: 1.3em; font-weight: 700; line-height: 1.2; }
+.fee__points .muted { font-size: 0.95em; line-height: 1.45; }
 
 /* ---------- Planos ---------- */
-.plans__intro { max-width: 46em; margin: -0.2em 0 1.6em; }
-.plans__intro strong { color: var(--ink); }
 
 /* Seletor segmentado: um botão por tipo de plano */
 .seg {
@@ -739,7 +727,11 @@ body.hide-todo .todo { text-decoration: none; }
   animation: fade-in 0.4s var(--ease);
 }
 .plan__body { padding: 1.6em 1.8em; }
-.plan__desc { font-size: 1.15em; line-height: 1.45; margin-bottom: 1.2em; }
+.plan { min-height: 17em; } /* mesma altura nos três planos: a caixa não pula ao trocar de aba */
+.plan__desc { font-size: 1.1em; line-height: 1.45; margin-bottom: 0.9em; }
+.plan__list { list-style: none; display: grid; gap: 0.45em; margin-bottom: 1.1em; }
+.plan__list li { display: flex; gap: 0.6em; align-items: flex-start; }
+.plan__list .ph { flex: none; margin-top: 0.2em; color: var(--gold); }
 .plan__level {
   display: flex;
   align-items: center;
@@ -1103,7 +1095,7 @@ body.chrome-off .topbar { opacity: 0; }
   .display, .display--md, .slide--divider .display { font-size: 2.8em; }
   .divider__num { font-size: 6em; }
   .grid--3, .split, .split--media, .split--qr, .tools, .eco, .photo-layout, .lives, .fee, .homework { grid-template-columns: 1fr; }
-  .plan, .account, .notices, .grid--2, .account__howto { grid-template-columns: 1fr; }
+  .plan, .account, .notices, .grid--2, .account__howto, .fee__points { grid-template-columns: 1fr; }
   .plan__fee { border-left: 0; border-top: 1px solid var(--line-soft); }
   .seg { display: flex; flex-wrap: wrap; border-radius: var(--radius); }
   .split--eco { grid-template-columns: 1fr; }
