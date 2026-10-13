@@ -496,55 +496,48 @@ body.hide-todo .todo { text-decoration: none; }
 .lives__extras li { display: flex; gap: 1.2em; align-items: flex-start; padding: 1.2em 0; }
 .lives__extras .feature__icon { flex: none; }
 
-/* ---------- AUVP Sempre ---------- */
-.sempre__track {
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  margin-bottom: 1.8em;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.sempre__year,
-.sempre__forever { display: flex; flex-direction: column; gap: 0.1em; padding: 1em 1.4em; }
-.sempre__year { background: var(--card); }
-.sempre__forever { background: linear-gradient(90deg, var(--gold-from), var(--gold) 45%, rgba(246, 198, 85, 0) 100%); color: var(--on-gold); }
-/* sem borda nem fim visível à direita: a faixa some no fundo, como um infinito */
-.sempre__track { -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent 97%); mask-image: linear-gradient(90deg, #000 60%, transparent 97%); }
-.sempre__tag { display: inline-flex; align-items: center; gap: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 800; line-height: 1.1; }
-.sempre__item { padding-left: 1.3em; border-left: 2px solid var(--line); }
-.sempre__item .card__icon { margin-bottom: 0.4em; }
-.sempre__item .muted { font-size: 0.95em; }
-
-/* ---------- Tarefa de casa ---------- */
-.homework { position: relative; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
+/* ---------- Tarefa de casa: cada passo com a sua imagem ---------- */
+.homework { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
 .h2-note { display: block; margin-top: 0.35em; color: var(--muted); font-family: var(--font-body); font-size: 0.38em; font-weight: 400; letter-spacing: 0; }
-.homework::before {
-  content: "";
-  position: absolute;
-  top: 2.2em;
-  left: 2em;
-  right: 2em;
-  border-top: 2px dashed var(--line);
-}
 .hw {
-  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4em;
-  width: 100%;
-  height: 100%;
-  padding: 0.9em 1.4em 1em;
+  overflow: hidden;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   background: var(--card);
-  text-align: left;
+  cursor: pointer;
   transition: all var(--dur-lp) ease;
 }
 .hw:hover { border-color: var(--gold); transform: translateY(-2px); }
-.hw__top { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 0.2em; }
-.hw__num { font-family: var(--font-display); font-size: 2.2em; font-weight: 800; line-height: 1; color: rgba(246, 198, 85, 0.35); transition: color var(--dur); }
+.hw__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--bg);
+}
+.hw__media img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.hw__media-tag {
+  position: absolute;
+  right: 0.7em;
+  bottom: 0.7em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--on-gold);
+  font-size: 0.75em;
+  font-weight: 700;
+}
+.hw__media--link:hover img { transform: scale(1.03); }
+.hw__media img { transition: transform var(--dur-lp) ease; }
+.hw__body { display: flex; flex-direction: column; gap: 0.35em; padding: 0.9em 1.3em 1.1em; }
+.hw__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.1em; }
+.hw__num { font-family: var(--font-display); font-size: 1.8em; font-weight: 800; line-height: 1; color: rgba(246, 198, 85, 0.35); transition: color var(--dur); }
 .hw__check {
   display: grid;
   place-items: center;
@@ -555,35 +548,11 @@ body.hide-todo .todo { text-decoration: none; }
   color: transparent;
   transition: all var(--dur) ease;
 }
-.hw__title { font-family: var(--font-display); font-size: 1.25em; font-weight: 700; line-height: 1.2; }
-.hw__text { color: var(--muted); }
+.hw__title { font-family: var(--font-display); font-size: 1.2em; font-weight: 700; line-height: 1.2; }
+.hw__text { color: var(--muted); font-size: 0.95em; }
 .hw[aria-pressed="true"] { border-color: var(--gold); background: linear-gradient(rgba(246, 198, 85, 0.07), rgba(246, 198, 85, 0.07)), var(--card); }
 .hw[aria-pressed="true"] .hw__num { color: var(--gold); }
 .hw[aria-pressed="true"] .hw__check { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
-
-/* print do tópico "Apresente-se": mesma largura da fileira de passos */
-.apresente {
-  display: block;
-  margin-top: 0.8em;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
-  transition: border-color var(--dur-lp) ease, transform var(--dur-lp) ease;
-}
-.apresente:hover { border-color: var(--gold); transform: translateY(-2px); }
-.apresente__label {
-  display: flex;
-  align-items: center;
-  gap: 0.8em;
-  padding: 0.6em 1.2em;
-  border-bottom: 1px solid var(--line-soft);
-  font-family: var(--font-display);
-  font-weight: 600;
-}
-.apresente__label .ph { margin-left: auto; color: var(--gold); font-size: 1.2em; }
-.apresente__step { color: var(--gold); font-family: var(--font-body); font-size: 0.72em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.apresente img { width: 100%; height: 8.6em; object-fit: cover; object-position: top left; }
 
 /* ---------- AUVP Capital ---------- */
 .photo-bleed--left {
@@ -1133,11 +1102,10 @@ body.chrome-off .topbar { opacity: 0; }
   h2 { font-size: 2em; }
   .display, .display--md, .slide--divider .display { font-size: 2.8em; }
   .divider__num { font-size: 6em; }
-  .grid--3, .split, .split--media, .split--qr, .tools, .eco, .photo-layout, .lives, .fee, .homework, .sempre__track { grid-template-columns: 1fr; }
+  .grid--3, .split, .split--media, .split--qr, .tools, .eco, .photo-layout, .lives, .fee, .homework { grid-template-columns: 1fr; }
   .plan, .account, .notices, .grid--2, .account__howto { grid-template-columns: 1fr; }
   .plan__fee { border-left: 0; border-top: 1px solid var(--line-soft); }
   .seg { display: flex; flex-wrap: wrap; border-radius: var(--radius); }
-  .homework::before { display: none; }
   .split--eco { grid-template-columns: 1fr; }
   .orbit { font-size: 0.8em; }
   .photo-layout--right .photo-layout__content { grid-column: auto; }

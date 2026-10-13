@@ -176,7 +176,8 @@
   // ---------- Tarefa de casa ----------
 
   document.querySelectorAll(".hw").forEach((task) => {
-    task.addEventListener("click", () => {
+    task.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
       task.setAttribute("aria-pressed", task.getAttribute("aria-pressed") !== "true");
     });
   });
