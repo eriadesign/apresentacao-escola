@@ -31,7 +31,10 @@
     if (index === current) return;
 
     const slide = slides[index];
-    fragmentsOf(slide).forEach((f) => f.classList.toggle("is-visible", showFragments));
+    fragmentsOf(slide).forEach((f) => {
+      f.classList.toggle("is-visible", showFragments);
+      f.classList.remove("is-dismissed");
+    });
 
     slides.forEach((s, i) => {
       s.classList.toggle("is-active", i === index);
@@ -63,7 +66,10 @@
 
   function next() {
     const pending = fragmentsOf(slides[current]).find((f) => !f.classList.contains("is-visible"));
-    if (pending) pending.classList.add("is-visible");
+    if (pending) {
+      pending.classList.add("is-visible");
+      pending.classList.remove("is-dismissed");
+    }
     else goTo(current + 1);
   }
 
@@ -181,6 +187,13 @@
     btn.addEventListener("click", () => {
       btn.closest(".slide").querySelector(".perks")?.classList.add("is-visible");
     });
+  });
+
+  // ---------- Aviso do AUVP Sempre: um clique dispensa ----------
+  // Continua contando como "já mostrado", então o próximo → avança o slide.
+
+  document.querySelectorAll(".sempre-pop").forEach((pop) => {
+    pop.addEventListener("click", () => pop.classList.add("is-dismissed"));
   });
 
   // ---------- Sem viúvas ----------

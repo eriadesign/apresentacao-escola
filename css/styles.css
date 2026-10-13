@@ -317,6 +317,54 @@ body.hide-todo .todo { text-decoration: none; }
 .fact .label { color: var(--gold); margin-bottom: 0.5em; }
 .fact .label .ph { font-size: 1.4em; }
 .fact__value { font-size: 2.2em; font-weight: 800; line-height: 1; margin-bottom: 0.3em; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45em; margin-top: 0.6em; }
+.chips li {
+  padding: 0.3em 0.8em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* ---------- Aviso do AUVP Sempre (popup no slide de ferramentas) ---------- */
+.sempre-pop {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+/* o véu cobre o slide inteiro: sem o deslocamento dos outros fragmentos, para não criar rolagem */
+.slide .sempre-pop.fragment { transform: none !important; }
+.sempre-pop:not(.is-visible), .sempre-pop.is-dismissed { pointer-events: none; }
+.sempre-pop.is-dismissed { opacity: 0 !important; }
+.sempre-pop__card {
+  max-width: 24em;
+  padding: 2em 2.2em;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: linear-gradient(rgba(246, 198, 85, 0.08), rgba(246, 198, 85, 0.08)), var(--card);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  transform: scale(0.92);
+  transition: transform 0.45s var(--ease);
+}
+.sempre-pop.is-visible .sempre-pop__card { transform: none; }
+.sempre-pop__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3em;
+  height: 3em;
+  margin-bottom: 0.7em;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 1.4em;
+}
+.sempre-pop__title { margin-bottom: 0.35em; font-family: var(--font-display); font-size: 1.6em; font-weight: 800; color: var(--gold); }
+.sempre-pop .muted { font-size: 1.1em; }
 
 
 /* ---------- Print/vídeo em moldura de navegador ---------- */
