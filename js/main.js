@@ -223,6 +223,10 @@
   }
   window.semViuva = semViuva;
   document.querySelectorAll("h1, h2, p, .hw__title, .hw__text").forEach(semViuva);
+  // itens de lista simples (sem blocos dentro, para não juntar texto entre blocos)
+  document.querySelectorAll("li").forEach((li) => {
+    if (!li.querySelector("p, div, ul, ol, li, span.hw__title")) semViuva(li);
+  });
 
   goTo(readHash());
 })();

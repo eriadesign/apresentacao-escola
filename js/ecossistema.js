@@ -5,13 +5,35 @@
   // Imagens relativas vêm do site-vendas publicado no GitHub Pages
   const BASE = "https://eriadesign.github.io/site-vendas/";
 
+  // d: texto do popup; topicos: destaques mostrados abaixo do texto
   const ITENS = [
-    { t: "Consultoria", d: "Nº 1 no ranking do BTG Pactual, pelo segundo ano seguido.", img: "assets/img/abra-sua-conta.jpg", alt: "comunidade pro.png" },
-    { t: "Conta com cartão próprio", d: "Conta, cartão e atendimento 100% AUVP, sujeito à análise de crédito.", img: "https://pbs.twimg.com/media/GxSRuKfXMAAQPsS.jpg", alt: "capa modulo 3.jpg" },
-    { t: "Crédito", d: "Comparação com mais de 20 bancos, sem liquidar seus investimentos.", img: "https://cdn.asupernova.com.br/lp-auvp/vite/onde sua vida financeira se resolve mobile.webp", alt: "simulados pro.png" },
-    { t: "Câmbio", d: "Enviar, receber ou investir no exterior com custo transparente.", img: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/04/servico-de-cambio.png", alt: "cripto.jpg" },
-    { t: "Seguros", d: "Cotação em até 6 seguradoras, sem viés de interesse.", img: "https://images.pexels.com/photos/20880348/pexels-photo-20880348.jpeg", alt: "thumb INDICADORES.jpg" },
-    { t: "Wealth", d: "Blindagem patrimonial, governança e planejamento sucessório.", img: "https://oespecialista.safra.com.br/wp-content/uploads/2026/05/wealth-management-nos-investimentos.jpg", alt: "analitica.jpg" },
+    {
+      t: "Consultoria",
+      d: "Nº 1 no ranking do BTG Pactual por dois anos consecutivos.",
+      topicos: ["Estratégia personalizada", "Acompanhamento ativo"],
+      img: "assets/img/abra-sua-conta.jpg", alt: "comunidade pro.png",
+    },
+    {
+      t: "Crédito",
+      d: "Poupe o tempo e o desgaste de negociar com diferentes instituições.",
+      img: "https://cdn.asupernova.com.br/lp-auvp/vite/onde sua vida financeira se resolve mobile.webp", alt: "simulados pro.png",
+    },
+    {
+      t: "Câmbio",
+      d: "Fale direto com a nossa mesa de especialistas para enviar ou receber capital do exterior com taxas justas e atendimento personalizado.",
+      img: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/04/servico-de-cambio.png", alt: "cripto.jpg",
+    },
+    {
+      t: "Seguros",
+      d: "Proteja o seu futuro e o das pessoas que dependem de você.",
+      img: "https://images.pexels.com/photos/20880348/pexels-photo-20880348.jpeg", alt: "thumb INDICADORES.jpg",
+    },
+    {
+      t: "Wealth",
+      d: "Otimizamos a sua estrutura tributária por meio de um planejamento patrimonial completo. Cada estratégia é desenhada sob medida para atender às necessidades do seu momento de vida e do seu capital.",
+      topicos: ["Planejamento patrimonial focado na otimização da sua carga tributária", "Estratégias exclusivas sob medida"],
+      img: "assets/img/wealth.jpg",
+    },
   ];
 
   const orbita = document.getElementById("eco-orbit");
@@ -37,9 +59,9 @@
     `<div class="orbit__core"><img src="${BASE}olho-amarelo.svg" alt="AUVP"></div>` +
     ITENS.map((it, k) => {
       const a = -90 + (360 * k) / ITENS.length;
-      return `<button type="button" class="eorb eorb--${ladoDoNome(a)}" style="--a:${a.toFixed(1)}deg;--j:${k}">` +
+      return `<button type="button" class="eorb eorb--${ladoDoNome(a)}" style="--a:${a.toFixed(1)}deg;--j:${k}" data-i="${k}">` +
         `<span class="eorb-in"><img class="eorb-img" ${foto(it)} alt="" decoding="async"></span>` +
-        `<b><span>${esc(it.t)}</span></b><small>${esc(it.d)}</small></button>`;
+        `<b><span>${esc(it.t)}</span></b></button>`;
     }).join("");
 
   document.addEventListener("error", (e) => {
@@ -56,6 +78,7 @@
   const mImg = document.getElementById("eco-modal-img");
   const mTit = document.getElementById("eco-modal-tit");
   const mDesc = document.getElementById("eco-modal-desc");
+  const mTopicos = document.getElementById("eco-modal-topicos");
   let origem = null;
 
   function transformDe(r) {
@@ -69,10 +92,18 @@
 
   function abre(btn) {
     const img = btn.querySelector(".eorb-img");
+    const it = ITENS[Number(btn.dataset.i)];
     mImg.src = img.src;
-    mTit.textContent = btn.querySelector("b").textContent;
-    mDesc.textContent = btn.querySelector("small").textContent;
-    if (window.semViuva) window.semViuva(mDesc);
+    mTit.textContent = it.t;
+    mDesc.textContent = it.d;
+    mTopicos.innerHTML = (it.topicos || [])
+      .map((tp) => `<li><i class="ph-fill ph-check-circle"></i><span>${esc(tp)}</span></li>`)
+      .join("");
+    mTopicos.hidden = !it.topicos;
+    if (window.semViuva) {
+      window.semViuva(mDesc);
+      mTopicos.querySelectorAll("span").forEach(window.semViuva);
+    }
     origem = btn;
     cena.classList.add("ver");
     cena.setAttribute("aria-hidden", "false");

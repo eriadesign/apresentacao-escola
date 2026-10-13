@@ -451,15 +451,20 @@
             </div>
             <div class="card account__card account__howto">
               <div>
-                <p class="account__title"><i class="ph ph-device-mobile"></i>Como abrir</p>
-                <p class="muted">Pode ser feito diretamente pelo site ou aplicativo <strong>“BTG Investimentos”</strong>.</p>
+                <div class="account__howto-head">
+                  <p class="account__title"><i class="ph ph-device-mobile"></i>Como abrir</p>
+                  <a class="btn btn--small account__btn" data-link="abrirConta">Abrir conta <i class="ph ph-arrow-up-right"></i></a>
+                </div>
+                <ul class="account__list account__list--how">
+                  <li>Diretamente pelo nosso link. Na página de planos estão os códigos para troca de assessoria.</li>
+                  <li>Quem já tem conta no BTG pode solicitar a troca de assessoria.</li>
+                </ul>
               </div>
               <div>
               <p class="account__important"><i class="ph-fill ph-warning-circle"></i>Importante</p>
               <ul class="account__list">
-                <li>Tenha em mãos seu documento com foto.</li>
-                <li>Se não for nacional, contate o suporte: <strong>(62) 3413-9882</strong>.</li>
-                <li>Quem já tem BTG pode solicitar troca de assessoria.</li>
+                <li>Tenha em mãos documento oficial com foto dentro da validade.</li>
+                <li>Quem tem o BC Protege+ ativo deve desabilitá-lo.</li>
               </ul>
               </div>
             </div>
@@ -478,7 +483,7 @@
         <div>
           <p class="eyebrow">Muito além de uma escola</p>
           <h2>Nós cuidamos da sua <span class="gold">vida financeira</span></h2>
-          <p class="lead">Pensou em dinheiro, pensou na AUVP. Além da escola e da consultoria, um ecossistema completo de serviços para você.</p>
+          <p class="lead">Além da escola e da consultoria, um ecossistema completo de serviços para você.</p>
         </div>
         <div class="orbit" id="eco-orbit"></div>
       </div>
@@ -561,7 +566,11 @@
     <div class="eco-modal" id="eco-modal" role="dialog" aria-modal="true">
       <button class="eco-modal-x" aria-label="Fechar"><i class="ph ph-x"></i></button>
       <img class="eco-modal-img" id="eco-modal-img" alt="">
-      <div class="eco-modal-corpo"><b id="eco-modal-tit"></b><p id="eco-modal-desc"></p></div>
+      <div class="eco-modal-corpo">
+        <b id="eco-modal-tit"></b>
+        <p id="eco-modal-desc"></p>
+        <ul class="eco-modal-topicos" id="eco-modal-topicos" hidden></ul>
+      </div>
     </div>
   </div>
 

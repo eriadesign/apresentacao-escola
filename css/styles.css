@@ -763,7 +763,11 @@ body.hide-todo .todo { text-decoration: none; }
 .account__callout { margin-top: 0; }
 .grid--2 { grid-template-columns: 1fr 1fr; }
 .account__card { padding: 0.8em 1.2em; }
-.account__howto { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.4em; }
+.account__howto { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.4em; }
+.account__howto-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8em; margin-bottom: 0.2em; }
+.account__howto-head .account__title { margin-bottom: 0; }
+.account__list--how { margin-top: 0.3em; }
+.account__btn { margin-top: 0; padding: 0.6em 1em; white-space: nowrap; }
 .account__callout { padding: 0.75em 1.2em; }
 .account__card:hover { transform: none; }
 .account__title { display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.15em; font-weight: 700; }
@@ -948,17 +952,14 @@ body.hide-todo .todo { text-decoration: none; }
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0s 0.5s, visibility 0s 0.5s;
 }
 .eco-modal-cena.ver .eco-modal { opacity: 1; visibility: visible; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0s, visibility 0s; }
-.eco-modal-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--card); }
-.eco-modal-corpo {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 4em 1.6em 1.2em;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.86) 34%, rgba(0, 0, 0, 0.45) 68%, transparent 100%);
-}
-.eco-modal-corpo b { display: block; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 700; line-height: 1.12; }
-.eco-modal-corpo p { color: rgba(255, 255, 255, 0.82); max-width: 62ch; }
+.eco-modal-img { width: 100%; aspect-ratio: 2 / 1; max-height: 42vh; object-fit: cover; background: var(--card); }
+/* o texto fica abaixo da foto: com os tópicos, por cima ela perderia a leitura */
+.eco-modal-corpo { padding: 1.1em 1.6em 1.4em; border-top: 1px solid var(--line-soft); }
+.eco-modal-corpo b { display: block; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 700; line-height: 1.12; color: var(--gold); }
+.eco-modal-corpo p { color: rgba(255, 255, 255, 0.85); max-width: 62ch; }
+.eco-modal-topicos { list-style: none; display: grid; gap: 0.45em; margin-top: 0.9em; }
+.eco-modal-topicos li { display: flex; gap: 0.6em; align-items: flex-start; color: var(--ink); }
+.eco-modal-topicos .ph-fill { flex: none; margin-top: 0.15em; color: var(--gold); font-size: 1.15em; }
 .eco-modal-x {
   position: absolute;
   top: 12px;
