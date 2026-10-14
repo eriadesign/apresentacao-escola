@@ -665,7 +665,7 @@ body.hide-todo .todo { text-decoration: none; }
 .perks.is-visible .perk__lock .ph-lock-simple-open { display: inline-block; }
 
 /* nota de rodapé (asterisco), no padrão da página de planos */
-sup { font-size: 0.65em; line-height: 0; color: var(--gold); }
+sup { font-size: 0.65em; line-height: 0; }
 .footnote { margin-top: 0.7em; color: var(--muted); font-size: 0.78em; }
 .perks__btn { margin-top: 0.7em; transition: opacity var(--dur), background var(--dur) ease, color var(--dur) ease; }
 .perks.is-visible .perks__btn { opacity: 0; pointer-events: none; }
@@ -720,21 +720,31 @@ sup { font-size: 0.65em; line-height: 0; color: var(--gold); }
   backdrop-filter: blur(12px);
   animation: fade-in 0.4s var(--ease);
 }
-.plan__body { padding: 1.6em 1.8em; }
-.plan { min-height: 15.7em; } /* mesma altura nos três planos: a caixa não pula ao trocar de aba */
+.plan__body { padding: 1.25em 1.8em; }
+.plan { min-height: 15em; } /* mesma altura nos três planos: a caixa não pula ao trocar de aba */
 .plan__desc { font-size: 1.1em; line-height: 1.45; margin-bottom: 0.9em; }
 .plan__list { list-style: none; display: grid; gap: 0.45em; margin-bottom: 1.1em; }
 .plan__list li { display: flex; gap: 0.6em; align-items: flex-start; }
 .plan__list .ph { flex: none; margin-top: 0.2em; color: var(--gold); }
-.plan .footnote { margin-top: -0.4em; }
+.plan__note { margin-top: 1em; padding-top: 0.8em; border-top: 1px solid var(--line-soft); color: var(--muted); font-size: 0.8em; }
+/* notas numeradas abaixo dos planos, como na página oficial */
+.disclaimers {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 2em;
+  margin-top: 0.7em;
+  color: var(--muted);
+  font-size: 0.75em;
+}
 
 /* benefícios que valem para todos os planos */
 .plans__all {
   display: flex;
   align-items: center;
   gap: 1.2em;
-  margin: -0.2em 0 1.2em;
-  padding: 0.8em 1.2em;
+  margin: -0.2em 0 0.9em;
+  padding: 0.6em 1.2em;
   border: 1px dashed var(--line);
   border-radius: var(--radius);
   background: rgba(246, 198, 85, 0.05);
