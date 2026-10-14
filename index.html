@@ -58,9 +58,10 @@
               <p class="label"><i class="ph ph-lightning"></i>Acesso imediato</p>
               <p class="fact__value">Já liberado hoje</p>
               <ul class="chips">
-                <li>Módulos de boas-vindas</li>
+                <li>Módulo de boas-vindas</li>
                 <li>Guia básico da plataforma</li>
                 <li>Comunidade</li>
+                <li>Abertura de conta</li>
               </ul>
             </li>
           </ul>
@@ -237,7 +238,7 @@
     <!-- 7. Próximos passos (tarefa de casa) -->
     <section class="slide" data-title="Tarefa de casa" data-block="Próximos passos">
       <div class="slide__inner">
-        <h2>Sua tarefa de casa <span class="h2-note">3 passos para se ambientar na plataforma</span></h2>
+        <h2>Sua tarefa de casa <span class="h2-note">Seus primeiros passos para se ambientar</span></h2>
         <ol class="homework">
           <li class="hw" aria-pressed="false">
             <span class="hw__media"><img src="assets/img/hub.png" alt="Tela inicial da Minha AUVP"></span>
@@ -251,7 +252,7 @@
             <span class="hw__media"><img src="https://cdn.asupernova.com.br/boas%20vindas.png" alt="Módulo de boas-vindas e guia básico da plataforma"></span>
             <div class="hw__body">
               <span class="hw__top"><span class="hw__num">02</span><button class="hw__check" aria-label="Marcar o passo 2 como feito"><i class="ph ph-check"></i></button></span>
-              <span class="hw__title">Assista ao módulo de boas-vindas</span>
+              <span class="hw__title">Assista aos dois primeiros módulos disponíveis</span>
               <span class="hw__text">O ponto de partida para aproveitar toda a sua jornada.</span>
             </div>
           </li>
@@ -262,8 +263,8 @@
             </a>
             <div class="hw__body">
               <span class="hw__top"><span class="hw__num">03</span><button class="hw__check" aria-label="Marcar o passo 3 como feito"><i class="ph ph-check"></i></button></span>
-              <span class="hw__title">Faça seu primeiro post na comunidade</span>
-              <span class="hw__text">Sugestão: responda o “Apresente-se” do Raul.</span>
+              <span class="hw__title">Apresente-se na comunidade</span>
+              <span class="hw__text">Responda o tópico “Apresente-se” do Raul.</span>
             </div>
           </li>
         </ol>
@@ -320,7 +321,7 @@
               </div>
               <div class="infra__base">
                 <i class="ph ph-plugs-connected"></i>
-                <p><span class="infra__tag">Parceiro de infraestrutura</span><strong>BTG Pactual</strong>, a plataforma e a tecnologia por trás da sua conta</p>
+                <p><span class="infra__tag">Parceiro de infraestrutura</span><strong>BTG Pactual</strong>, a plataforma e a tecnologia por trás da sua conta.</p>
               </div>
             </div>
             <p class="conta__note">Você abre sua conta <strong>na AUVP Capital</strong> e fica com o melhor dos dois: a metodologia AUVP com a infraestrutura de um grande banco parceiro.</p>
@@ -328,7 +329,6 @@
 
           <div class="conta__perks perks fragment" data-fragment="state">
             <p class="conta__perks-title">Abriu a conta, <span class="gold">desbloqueou</span></p>
-            <p class="muted conta__perks-lead">Ao abrir sua conta, você desbloqueia:</p>
             <ul class="perk-list">
               <li class="perk">
                 <i class="perk__icon ph ph-chart-pie-slice"></i>
@@ -340,8 +340,23 @@
                 <p class="perk__title">Previdência privada</p>
                 <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
               </li>
+              <li class="perk">
+                <i class="perk__icon ph ph-receipt-x"></i>
+                <p class="perk__title">Corretagem zero<sup>*</sup></p>
+                <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              </li>
+              <li class="perk">
+                <i class="perk__icon ph ph-coins"></i>
+                <p class="perk__title">Cashback em renda fixa</p>
+                <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              </li>
+              <li class="perk">
+                <i class="perk__icon ph ph-file-text"></i>
+                <p class="perk__title">Relatórios exclusivos</p>
+                <span class="perk__lock" aria-hidden="true"><i class="ph-fill ph-lock-simple"></i><i class="ph-fill ph-lock-simple-open"></i></span>
+              </li>
             </ul>
-            <p class="perks__more">E mais: <span>Corretagem zero</span><span>Cashback em renda fixa</span><span>Relatórios exclusivos</span></p>
+            <p class="footnote">* Referente às operações de renda variável na conta nacional.</p>
             <button class="btn btn--small perks__btn" data-unlock>Abrir minha conta <i class="ph ph-lock-simple-open"></i></button>
           </div>
         </div>
@@ -365,8 +380,14 @@
     <!-- 8.2 Planos -->
     <section class="slide theme-capital" data-title="Planos" data-block="Planos">
       <div class="slide__inner">
-        <p class="eyebrow">Três opções</p>
         <h2>Modelos de contratação</h2>
+        <div class="plans__all">
+          <span class="plans__all-tag"><i class="ph-fill ph-seal-check"></i>Em todos os planos</span>
+          <ul>
+            <li>Kinvo Premium por até 12 meses, conforme disponibilidade e elegibilidade</li>
+            <li>Relatório semanal com notícias e análise do cenário macroeconômico</li>
+          </ul>
+        </div>
 
         <div class="plans" data-tabs>
           <div class="seg" role="tablist">
@@ -380,10 +401,10 @@
               <p class="label">Plano "Se Vira Aí" · Autoatendimento</p>
               <p class="plan__desc">O membro investe com autonomia total, usando a plataforma e usufruindo dos benefícios de ser membro da AUVP Capital.</p>
               <ul class="plan__list">
-                <li><i class="ph ph-check"></i>Kinvo Premium por até 12 meses, conforme disponibilidade e elegibilidade</li>
-                <li><i class="ph ph-check"></i>Relatório semanal com notícias e análise do cenário macroeconômico</li>
+                <li><i class="ph ph-check"></i>Cashback em renda fixa e aluguel de ações</li>
+                <li><i class="ph ph-check"></i><span>Operações sem cobrança de corretagem<sup>*</sup></span></li>
               </ul>
-              <p class="plan__level"><span class="meter"><i class="is-on"></i><i></i><i></i></span>Acompanhamento</p>
+              <p class="footnote">* Referente às operações de renda variável na conta nacional.</p>
             </div>
             <div class="plan__fee">
               <p class="label">Taxa</p>
@@ -398,10 +419,9 @@
               <p class="plan__desc">Orientação em investimentos para quem quer definir a direção na hora de montar ou ajustar a carteira.</p>
               <ul class="plan__list">
                 <li><i class="ph ph-check"></i>Direcionamento para seus investimentos, sob demanda</li>
-                <li><i class="ph ph-check"></i>Relatórios semanais com os melhores investimentos em renda fixa</li>
+                <li><i class="ph ph-check"></i>Relatórios diários com os melhores investimentos em renda fixa</li>
                 <li><i class="ph ph-check"></i>Relatórios mensais de análises do cenário macroeconômico</li>
               </ul>
-              <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i></i></span>Acompanhamento</p>
             </div>
             <div class="plan__fee">
               <p class="label">Taxa</p>
@@ -419,7 +439,6 @@
                 <li><i class="ph ph-check"></i>Consultor dedicado via WhatsApp</li>
                 <li><i class="ph ph-check"></i>Estratégia de alocação 100% personalizada</li>
               </ul>
-              <p class="plan__level"><span class="meter"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span>Acompanhamento</p>
             </div>
             <div class="plan__fee">
               <p class="label">Taxa</p>
@@ -438,11 +457,11 @@
         <h2>Abra sua conta na <span class="gold">AUVP Capital</span></h2>
         <div class="account">
           <div class="account__info">
-            <p class="callout account__callout">Ao abrir uma conta, você terá acesso às plataformas <strong>banking</strong> e de <strong>investimentos</strong>.</p>
+            <p class="callout account__callout">Ao abrir uma conta, você terá acesso às plataformas de <strong>investimentos</strong> e <strong>banking</strong>.</p>
             <div class="grid grid--2">
               <div class="card account__card">
                 <p class="account__title"><i class="ph ph-trend-up"></i>Investimentos</p>
-                <p class="muted">Ambiente para acessar o mercado financeiro, investir e acompanhar ativos, com suporte de consultoria.</p>
+                <p class="muted">Ambiente para acessar o mercado financeiro, investir e acompanhar ativos, com opção de suporte por consultoria.</p>
               </div>
               <div class="card account__card">
                 <p class="account__title"><i class="ph ph-bank"></i>Conta Banking</p>
@@ -453,11 +472,10 @@
               <div>
                 <div class="account__howto-head">
                   <p class="account__title"><i class="ph ph-device-mobile"></i>Como abrir</p>
-                  <a class="btn btn--small account__btn" data-link="abrirConta">Abrir conta <i class="ph ph-arrow-up-right"></i></a>
+                  <a class="account__link" data-link="abrirConta">abrir link <i class="ph ph-arrow-up-right"></i></a>
                 </div>
                 <ul class="account__list account__list--how">
-                  <li>Diretamente pelo nosso link. Na página de planos estão os códigos para troca de assessoria.</li>
-                  <li>Quem já tem conta no BTG pode solicitar a troca de assessoria.</li>
+                  <li>Diretamente pelo nosso link. Os códigos para troca de assessoria estão na página de planos.</li>
                 </ul>
               </div>
               <div>

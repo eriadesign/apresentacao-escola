@@ -635,14 +635,13 @@ body.hide-todo .todo { text-decoration: none; }
 .conta__note strong { color: var(--gold); }
 
 /* Vantagens: bloqueadas até o fragmento/botão "abrir conta" */
-.conta__perks-title { font-family: var(--font-display); font-size: 1.45em; font-weight: 800; line-height: 1.1; }
-.conta__perks-lead { margin: 0.2em 0 0.8em; }
-.perk-list { list-style: none; display: grid; gap: 0.5em; }
+.conta__perks-title { margin-bottom: 0.7em; font-family: var(--font-display); font-size: 1.45em; font-weight: 800; line-height: 1.1; }
+.perk-list { list-style: none; display: grid; gap: 0.45em; }
 .perk {
   display: flex;
   align-items: center;
   gap: 1em;
-  padding: 0.65em 1.1em;
+  padding: 0.55em 1.1em;
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
   background: var(--card);
@@ -657,22 +656,17 @@ body.hide-todo .todo { text-decoration: none; }
 .perks:not(.is-visible) .perk { opacity: 0.5; }
 .perks:not(.is-visible) .perk__icon { color: var(--muted); }
 .perks.is-visible .perk { border-color: var(--gold); background: linear-gradient(rgba(246, 198, 85, 0.07), rgba(246, 198, 85, 0.07)), var(--card); }
-.perks.is-visible .perk:nth-child(2) { transition-delay: 0.12s; }
-.perks.is-visible .perk:nth-child(3) { transition-delay: 0.24s; }
+.perks.is-visible .perk:nth-child(2) { transition-delay: 0.1s; }
+.perks.is-visible .perk:nth-child(3) { transition-delay: 0.2s; }
+.perks.is-visible .perk:nth-child(4) { transition-delay: 0.3s; }
+.perks.is-visible .perk:nth-child(5) { transition-delay: 0.4s; }
 .perks.is-visible .perk__lock { color: var(--gold); }
 .perks.is-visible .perk__lock .ph-lock-simple { display: none; }
 .perks.is-visible .perk__lock .ph-lock-simple-open { display: inline-block; }
 
-.perks__more { margin-top: 0.8em; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; color: var(--muted); font-size: 0.82em; }
-.perks__more span {
-  padding: 0.3em 0.8em;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  transition: all 0.5s var(--ease) 0.3s;
-}
-.perks.is-visible .perks__more span { border-color: var(--gold); color: var(--gold); }
-.perks:not(.is-visible) .perks__more { opacity: 0.5; }
+/* nota de rodapé (asterisco), no padrão da página de planos */
+sup { font-size: 0.65em; line-height: 0; color: var(--gold); }
+.footnote { margin-top: 0.7em; color: var(--muted); font-size: 0.78em; }
 .perks__btn { margin-top: 0.7em; transition: opacity var(--dur), background var(--dur) ease, color var(--dur) ease; }
 .perks.is-visible .perks__btn { opacity: 0; pointer-events: none; }
 
@@ -727,24 +721,38 @@ body.hide-todo .todo { text-decoration: none; }
   animation: fade-in 0.4s var(--ease);
 }
 .plan__body { padding: 1.6em 1.8em; }
-.plan { min-height: 17em; } /* mesma altura nos três planos: a caixa não pula ao trocar de aba */
+.plan { min-height: 15.7em; } /* mesma altura nos três planos: a caixa não pula ao trocar de aba */
 .plan__desc { font-size: 1.1em; line-height: 1.45; margin-bottom: 0.9em; }
 .plan__list { list-style: none; display: grid; gap: 0.45em; margin-bottom: 1.1em; }
 .plan__list li { display: flex; gap: 0.6em; align-items: flex-start; }
 .plan__list .ph { flex: none; margin-top: 0.2em; color: var(--gold); }
-.plan__level {
+.plan .footnote { margin-top: -0.4em; }
+
+/* benefícios que valem para todos os planos */
+.plans__all {
   display: flex;
   align-items: center;
-  gap: 0.7em;
-  color: var(--muted);
+  gap: 1.2em;
+  margin: -0.2em 0 1.2em;
+  padding: 0.8em 1.2em;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: rgba(246, 198, 85, 0.05);
+}
+.plans__all-tag {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--gold);
   font-size: 0.75em;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.meter { display: inline-flex; gap: 0.25em; }
-.meter i { width: 1.8em; height: 0.4em; border-radius: 2px; background: var(--line); }
-.meter i.is-on { background: var(--gold); }
+.plans__all-tag .ph-fill { font-size: 1.4em; }
+.plans__all ul { list-style: none; display: grid; gap: 0.25em; padding-left: 1.2em; border-left: 1px solid var(--line); font-size: 0.95em; }
+.plans__all li::before { content: "•"; margin-right: 0.5em; color: var(--gold); }
 .plan__fee {
   display: flex;
   flex-direction: column;
@@ -767,7 +775,19 @@ body.hide-todo .todo { text-decoration: none; }
 .account__howto-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8em; margin-bottom: 0.2em; }
 .account__howto-head .account__title { margin-bottom: 0; }
 .account__list--how { margin-top: 0.3em; }
-.account__btn { margin-top: 0; padding: 0.6em 1em; white-space: nowrap; }
+/* atalho discreto para o link de abertura (não é um botão de destaque) */
+.account__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  color: var(--muted);
+  font-size: 0.75em;
+  white-space: nowrap;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  transition: color var(--dur);
+}
+.account__link:hover { color: var(--gold); }
 .account__callout { padding: 0.75em 1.2em; }
 .account__card:hover { transform: none; }
 .account__title { display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.15em; font-weight: 700; }
@@ -1097,6 +1117,8 @@ body.chrome-off .topbar { opacity: 0; }
   .divider__num { font-size: 6em; }
   .grid--3, .split, .split--media, .split--qr, .tools, .eco, .photo-layout, .lives, .fee, .homework { grid-template-columns: 1fr; }
   .plan, .account, .notices, .grid--2, .account__howto, .fee__points { grid-template-columns: 1fr; }
+  .plans__all { flex-direction: column; align-items: flex-start; }
+  .plans__all ul { padding-left: 0; border-left: 0; }
   .plan__fee { border-left: 0; border-top: 1px solid var(--line-soft); }
   .seg { display: flex; flex-wrap: wrap; border-radius: var(--radius); }
   .split--eco { grid-template-columns: 1fr; }
