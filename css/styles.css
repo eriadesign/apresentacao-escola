@@ -977,7 +977,9 @@ sup { font-size: 0.65em; line-height: 0; color: var(--gold); }
 .eco-modal-corpo { padding: 1.1em 1.6em 1.4em; border-top: 1px solid var(--line-soft); }
 .eco-modal-corpo b { display: block; margin-bottom: 0.3em; font-family: var(--font-display); font-size: 1.6em; font-weight: 700; line-height: 1.12; color: var(--gold); }
 .eco-modal-corpo p { color: rgba(255, 255, 255, 0.85); max-width: 62ch; }
-.eco-modal-topicos { list-style: none; display: grid; gap: 0.45em; margin-top: 0.9em; }
+.eco-modal-topicos { list-style: none; display: grid; gap: 0.45em 1.4em; margin-top: 0.9em; }
+/* com quatro ou mais tópicos curtos, duas colunas: o popup não cresce demais */
+.eco-modal-topicos:has(li:nth-child(4)) { grid-template-columns: 1fr 1fr; }
 .eco-modal-topicos li { display: flex; gap: 0.6em; align-items: flex-start; color: var(--ink); }
 .eco-modal-topicos .ph-fill { flex: none; margin-top: 0.15em; color: var(--gold); font-size: 1.15em; }
 .eco-modal-x {

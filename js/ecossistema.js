@@ -25,13 +25,18 @@
     },
     {
       t: "Seguros",
-      d: "Proteja o seu futuro e o das pessoas que dependem de você.",
+      d: "Investir constrói o seu futuro. Proteger garante que ele aconteça, para você e para quem depende de você.",
       img: "https://images.pexels.com/photos/20880348/pexels-photo-20880348.jpeg", alt: "thumb INDICADORES.jpg",
     },
     {
       t: "Wealth",
       d: "Otimizamos a sua estrutura tributária por meio de um planejamento patrimonial completo. Cada estratégia é desenhada sob medida para atender às necessidades do seu momento de vida e do seu capital.",
-      topicos: ["Planejamento patrimonial focado na otimização da sua carga tributária", "Estratégias exclusivas sob medida"],
+      topicos: [
+        "Planejamento sucessório",
+        "Abertura de Holding Empresarial e Patrimonial",
+        "Estruturação Offshore",
+        "Mudança de Domicílio Fiscal",
+      ],
       img: "assets/img/wealth.jpg",
     },
   ];
