@@ -10,4 +10,5 @@ window.AUVP_LINKS = {
   analitica: "https://analitica.auvp.com.br/",
   apresenteSe: "https://comunidade.auvp.com.br/topic/8-apresente-se/",   // post "Apresente-se" do Raul na comunidade
   abrirConta: "https://auvpcapital.com.br/abertura-conta-pf/",          // abertura de conta PF na AUVP Capital
+  planos: "https://auvpcapital.com.br/planos/",                         // planos e códigos de troca de assessoria
 };
